@@ -4,14 +4,31 @@
     alt="Join Logo"
     class="move-logo-animation"
   />
-  <div class="sign-in-container">
+  <div
+    class="sign-in-container fade-in-animation"
+    id="sign-in-button-container"
+  >
     <span>Not a Join user?</span>
-    <button>Sign up</button>
+    <button
+      (click)="
+        switchContainer(
+          'sign-in-button-container',
+          'login-container',
+          'register-container'
+        )
+      "
+    >
+      Sign up
+    </button>
   </div>
+  <div class="height-100"></div>
 </div>
 
 <div class="position-container">
-  <div class="login-container">
+  <div
+    class="login-register-fmp-container fade-in-animation"
+    id="login-container"
+  >
     <h1>Log in</h1>
     <div class="blue-line"></div>
     <form class="form-container">
@@ -29,7 +46,13 @@
         <img
           src="/assets/img/password-dont-see-image.png"
           alt="Locksymbol"
-          (click)="showOrHidePassword()"
+          (click)="
+            showOrHidePassword(
+              'password-input',
+              'show-password-image',
+              'hide-password-image'
+            )
+          "
           id="hide-password-image"
         />
         <img
@@ -37,13 +60,29 @@
           id="show-password-image"
           src="/assets/img/password-see-image.png"
           alt="Locksymbol"
-          (click)="showOrHidePassword()"
+          (click)="
+            showOrHidePassword(
+              'password-input',
+              'show-password-image',
+              'hide-password-image'
+            )
+          "
         />
       </label>
       <div class="forgot-my-password-container">
         <input type="checkbox" />
         <span>Remember me</span>
-        <a href="#">Forgot my password</a>
+        <a
+          href="#"
+          (click)="
+            switchContainer(
+              'sign-in-button-container',
+              'login-container',
+              'fmp-container'
+            )
+          "
+          >Forgot my password</a
+        >
       </div>
       <div class="log-in-button-container">
         <button class="user-login-button">Log in</button>
@@ -51,4 +90,9 @@
       </div>
     </form>
   </div>
+  <app-register class="d-none" id="register-container"></app-register>
+  <app-forgot-my-password
+    class="d-none"
+    id="fmp-container"
+  ></app-forgot-my-password>
 </div>

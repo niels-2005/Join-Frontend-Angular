@@ -1,42 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { HideOrShowPasswortInInputServiceService } from 'src/app/services/hide-or-show-passwort-in-input-service.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
-  showOrHidePassword(): void {
-    const passwordInput = document.getElementById('password-input') as HTMLInputElement;
-    const showPasswordImage = document.getElementById('show-password-image') as HTMLImageElement;
-    const hidePasswordImage = document.getElementById('hide-password-image') as HTMLImageElement;
-
-    if (this.passwordTypeIsPassword(passwordInput)) {
-      this.changePasswordTypeToText(hidePasswordImage, showPasswordImage, passwordInput);
-    } else if (this.passwordTypeIsText(passwordInput)) {
-      this.changePasswordTypeToPassword(hidePasswordImage, showPasswordImage, passwordInput);
-    }
+  ngOnInit(): void {
+      setTimeout(() => {
+        this.deleteAnimations();
+      }, 2000);
   }
 
-  passwordTypeIsPassword(passwordInput: any){
-    return passwordInput && passwordInput.type === 'password'
+  deleteAnimations(){
+    document.getElementById('login-container')!.classList.remove('fade-in-animation');
+    document.getElementById('sign-in-button-container')!.classList.remove('fade-in-animation');
   }
 
-  changePasswordTypeToText(hidePasswordImage: HTMLImageElement, showPasswordImage: HTMLImageElement, passwordInput: any){
-      hidePasswordImage.classList.add('d-none');
-      showPasswordImage.classList.remove('d-none');
-      passwordInput.type = 'text';
+  constructor(private hideOrShowPasswordService: HideOrShowPasswortInInputServiceService) { }
+
+  showOrHidePassword(id1: string, id2: string, id3: string): void {
+    this.hideOrShowPasswordService.showOrHidePassword(id1, id2, id3);
   }
 
-  passwordTypeIsText(passwordInput: any){
-    return passwordInput
+  switchContainer(id1: string, id2: string, id3: string) {
+    document.getElementById(id1)!.classList.add('d-none');
+    document.getElementById(id2)!.classList.add('d-none');
+    document.getElementById(id3)!.classList.remove('d-none');
   }
-
-  changePasswordTypeToPassword(hidePasswordImage: HTMLImageElement, showPasswordImage: HTMLImageElement, passwordInput: any){
-      showPasswordImage.classList.add('d-none');
-      hidePasswordImage.classList.remove('d-none');
-      passwordInput.type = 'password';
-}
-
 }

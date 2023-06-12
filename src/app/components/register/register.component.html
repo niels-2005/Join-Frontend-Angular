@@ -1,1 +1,56 @@
-<p>register works!</p>
+<div class="login-register-fmp-container">
+  <img
+    src="/assets/img/Pfeil-links.png"
+    alt="Blue Arrow Left"
+    class="blue-arrow-left-image"
+    (click)="switchToLoginContainer()"
+  />
+  <h1>Sign up</h1>
+  <div class="blue-line"></div>
+  <form class="form-container mt-16">
+    <label class="form-input-label">
+      <input type="text" class="login-input" placeholder="Name" />
+      <img src="/assets/img/user.png" alt="Usersymbol" />
+    </label>
+    <label class="form-input-label">
+      <input type="email" class="login-input" placeholder="Email" />
+      <img src="/assets/img/mail-icon.png" alt="Mailsymbol" />
+    </label>
+    <label class="form-input-label">
+      <input
+        type="password"
+        class="login-input"
+        placeholder="Password"
+        id="password-input-register"
+      />
+      <img
+        src="/assets/img/password-dont-see-image.png"
+        alt="Locksymbol"
+        (click)="
+          showOrHidePassword(
+            'password-input-register',
+            'show-password-image-register',
+            'hide-password-image-register'
+          )
+        "
+        id="hide-password-image-register"
+      />
+      <img
+        class="d-none"
+        id="show-password-image-register"
+        src="/assets/img/password-see-image.png"
+        alt="Locksymbol"
+        (click)="
+          showOrHidePassword(
+            'password-input-register',
+            'show-password-image-register',
+            'hide-password-image-register'
+          )
+        "
+      />
+    </label>
+    <div class="justify-content-center mt-16">
+      <button class="user-sign-up-button">Sign up</button>
+    </div>
+  </form>
+</div>
