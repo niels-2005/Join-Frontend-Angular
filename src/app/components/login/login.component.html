@@ -1,0 +1,54 @@
+<div class="login-top-container">
+  <img
+    src="/assets/img/Capa1.png"
+    alt="Join Logo"
+    class="move-logo-animation"
+  />
+  <div class="sign-in-container">
+    <span>Not a Join user?</span>
+    <button>Sign up</button>
+  </div>
+</div>
+
+<div class="position-container">
+  <div class="login-container">
+    <h1>Log in</h1>
+    <div class="blue-line"></div>
+    <form class="form-container">
+      <label class="form-input-label">
+        <input type="email" class="login-input" placeholder="Email" />
+        <img src="/assets/img/mail-icon.png" alt="Mailsymbol" />
+      </label>
+      <label class="form-input-label">
+        <input
+          type="password"
+          class="login-input"
+          placeholder="Password"
+          id="password-input"
+        />
+        <img
+          src="/assets/img/password-dont-see-image.png"
+          alt="Locksymbol"
+          (click)="showOrHidePassword()"
+          id="hide-password-image"
+        />
+        <img
+          class="d-none"
+          id="show-password-image"
+          src="/assets/img/password-see-image.png"
+          alt="Locksymbol"
+          (click)="showOrHidePassword()"
+        />
+      </label>
+      <div class="forgot-my-password-container">
+        <input type="checkbox" />
+        <span>Remember me</span>
+        <a href="#">Forgot my password</a>
+      </div>
+      <div class="log-in-button-container">
+        <button class="user-login-button">Log in</button>
+        <button class="guest-login-button">Guest Log in</button>
+      </div>
+    </form>
+  </div>
+</div>
