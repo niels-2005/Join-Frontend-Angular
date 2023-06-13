@@ -112,13 +112,15 @@
     margin-left: 10px;
     font-size: 17px;
   }
-  a {
-    margin-left: 60px;
+}
+
+.fmp-span {
+  cursor: pointer;
+    margin-left: 60px !important;
     font-size: 17px;
     text-decoration: none;
     color: #29ABE2;
     &:hover {
       text-decoration: underline;
     }
-  }
 }

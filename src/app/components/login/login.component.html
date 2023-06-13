@@ -31,7 +31,7 @@
   >
     <h1>Log in</h1>
     <div class="blue-line"></div>
-    <form class="form-container">
+    <form class="form-container mt-16">
       <label class="form-input-label">
         <input type="email" class="login-input" placeholder="Email" />
         <img src="/assets/img/mail-icon.png" alt="Mailsymbol" />
@@ -72,7 +72,8 @@
       <div class="forgot-my-password-container">
         <input type="checkbox" />
         <span>Remember me</span>
-        <a
+        <span
+          class="fmp-span"
           href="#"
           (click)="
             switchContainer(
@@ -81,7 +82,7 @@
               'fmp-container'
             )
           "
-          >Forgot my password</a
+          >Forgot my password</span
         >
       </div>
       <div class="log-in-button-container">
