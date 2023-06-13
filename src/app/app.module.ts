@@ -9,6 +9,7 @@ import { ForgotMyPasswordComponent } from './components/forgot-my-password/forgo
 import { SitebarComponent } from './components/sitebar/sitebar.component';
 import { KanbanprojecttoolheaderComponent } from './components/kanbanprojecttoolheader/kanbanprojecttoolheader.component';
 import { SummaryComponent } from './components/summary/summary.component';
+import { LegalnoticeComponent } from './components/legalnotice/legalnotice.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { SummaryComponent } from './components/summary/summary.component';
     SitebarComponent,
     KanbanprojecttoolheaderComponent,
     SummaryComponent,
+    LegalnoticeComponent,
   ],
   imports: [
     BrowserModule,
