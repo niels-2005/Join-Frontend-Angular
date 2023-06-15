@@ -1,0 +1,121 @@
+.board-container {
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 50px;
+}
+
+.board-headline-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h1 {
+    font-size: 64px;
+  }
+}
+
+.board-headline-right-container {
+  display: flex;
+  gap: 30px;
+}
+
+.board-input-container {
+  display: flex;
+  position: relative;
+  input {
+    padding-left: 15px;
+    height: 50px;
+    width: 250px;
+    border-style: unset;
+    border: 1px solid #a8a8a8;
+    border-radius: 10px;
+    font-size: 16px;
+    &::placeholder {
+      font-size: 16px;
+      color: #d1d1d1;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+  img {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+  }
+}
+
+.vertikal-line {
+  background-color: #d1d1d1 !important;
+  height: 35px !important;
+  width: 1px !important;
+}
+
+.input-vertikal-line-pos {
+  position: absolute;
+  right: 50px;
+  top: 8px;
+}
+
+.add-task-button {
+    padding-left: 15px;
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 140px;
+    height: 50px;
+    border-radius: 8px;
+    border-style: unset;
+    font-size: 21px;
+    cursor: pointer;
+    transition: 0.1s ease-in-out;
+    font-weight: bold;
+    background-color: #2A3647;
+    color: white;
+    &:hover{
+      background-color: #29ABE2;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.task-container {
+  display: flex;
+  gap: 152px;
+}
+
+.example-box {
+  min-height: 50px;
+}
+
+h2 {
+  width: 250px !important;
+}
+
+.each-task-styling-container {
+  height: 200px;
+  width: 250px;
+  margin-bottom: 20px;
+  background-color: white;
+  box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+  border-radius: 30px;
+}
+
+.placeholder-list {
+  height: 500px;
+}
+
+.add-task-container-position {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  z-index: 100;
+  transition: transform 0.2s ease-in-out;
+  transform: translateX(2000px);
+}
+
+.show-task-field {
+  transform: translateX(0px) !important;
+  right: 145px;
+}
+
+

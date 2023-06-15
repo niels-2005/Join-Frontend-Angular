@@ -1,0 +1,98 @@
+<app-sitebar></app-sitebar>
+<app-kanbanprojecttoolheader></app-kanbanprojecttoolheader>
+
+<div class="content-container">
+  <div class="board-container">
+    <div class="board-headline-container">
+      <h1>Board</h1>
+      <div class="board-headline-right-container">
+        <div class="board-input-container">
+          <input type="text" placeholder="Find Task" />
+          <div class="vertikal-line input-vertikal-line-pos"></div>
+          <img src="/assets/img/search-icon.png" alt="Search Icon" />
+        </div>
+        <button class="add-task-button" (click)="openTaskField()">
+          Add task <img src="/assets/img/white-add-icon.png" alt="Add Icon" />
+        </button>
+      </div>
+    </div>
+    <div cdkDropListGroup class="task-container">
+      <div>
+        <h2>To do</h2>
+        <div
+          cdkDropList
+          [cdkDropListData]="todo"
+          class="placeholder-list"
+          (cdkDropListDropped)="drop($event)"
+        >
+          <div
+            class="each-task-styling-container"
+            *ngFor="let item of todo"
+            cdkDrag
+          >
+            {{ item }}
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h2>In progress</h2>
+        <div
+          cdkDropList
+          [cdkDropListData]="inProgress"
+          class="placeholder-list"
+          (cdkDropListDropped)="drop($event)"
+        >
+          <div
+            class="each-task-styling-container"
+            *ngFor="let item of inProgress"
+            cdkDrag
+          >
+            {{ item }}
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h2>Awaiting Feedback</h2>
+        <div
+          cdkDropList
+          [cdkDropListData]="awaitingFeedback"
+          class="placeholder-list"
+          (cdkDropListDropped)="drop($event)"
+        >
+          <div
+            class="each-task-styling-container"
+            *ngFor="let item of awaitingFeedback"
+            cdkDrag
+          >
+            {{ item }}
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h2>Done</h2>
+        <div
+          cdkDropList
+          [cdkDropListData]="done"
+          class="placeholder-list"
+          (cdkDropListDropped)="drop($event)"
+        >
+          <div
+            class="each-task-styling-container"
+            *ngFor="let item of done"
+            cdkDrag
+          >
+            {{ item }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-addtaskboardbutton
+  id="add-task-field"
+  class="add-task-container-position"
+></app-addtaskboardbutton>

@@ -44,6 +44,7 @@
 * {
   font-family: 'Inter', sans-serif;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 body {
@@ -112,6 +113,25 @@ body {
   font-weight: bold;
 }
 
+.button-style-dark-bg {
+  background-color: #2A3647;
+  color: white;
+  &:hover{
+    background-color: #29ABE2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.button-style-white-bg {
+  border: 1px solid #2A3647 !important;
+  background-color: white;
+  &:hover{
+    border: 1px solid #29ABE2 !important;
+    color: #29ABE2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+  }
+}
+
 a {
   text-decoration: none;
   color: black;
@@ -133,6 +153,10 @@ a {
 
 .bg-color-grey {
   background-color: #D1D1D1;
+}
+
+.transition-ease-in-out {
+  transition: 0.1s ease-in-out;
 }
 
 // Login, Register, Forgot-My-Password Classes (DRY)
@@ -206,3 +230,5 @@ a {
   top: 40px;
   cursor: pointer;
 }
+
+

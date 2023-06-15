@@ -10,6 +10,13 @@ import { SitebarComponent } from './components/sitebar/sitebar.component';
 import { KanbanprojecttoolheaderComponent } from './components/kanbanprojecttoolheader/kanbanprojecttoolheader.component';
 import { SummaryComponent } from './components/summary/summary.component';
 import { LegalnoticeComponent } from './components/legalnotice/legalnotice.component';
+import { BoardComponent } from './components/board/board.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import { AddtaskboardbuttonComponent } from './components/addtaskboardbutton/addtaskboardbutton.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -21,10 +28,17 @@ import { LegalnoticeComponent } from './components/legalnotice/legalnotice.compo
     KanbanprojecttoolheaderComponent,
     SummaryComponent,
     LegalnoticeComponent,
+    BoardComponent,
+    AddtaskboardbuttonComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DragDropModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
