@@ -1,6 +1,11 @@
 <div class="add-task-container-position">
   <div class="add-task-container">
-    <img src="/assets/img/cross-icon.png" alt="X Icon" class="x-image" />
+    <img
+      src="/assets/img/cross-icon.png"
+      alt="X Icon"
+      class="x-image"
+      (click)="closeTaskField()"
+    />
     <h1>Add Task</h1>
     <form class="add-task-content-container">
       <div class="add-task-content-left">

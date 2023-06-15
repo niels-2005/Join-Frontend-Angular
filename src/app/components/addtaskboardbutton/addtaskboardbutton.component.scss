@@ -100,6 +100,7 @@
 .prio-container {
   display: flex;
   justify-content: space-between;
+  height: 55px;
 }
 
 .prio-content-style {
@@ -199,4 +200,11 @@
   background-repeat: no-repeat;
   background-position: right 18px center;
   padding-right: 35px;
+}
+
+.vertikal-line {
+  margin-top: 35px;
+  height: 620px;
+  width: 2px;
+  background-color: #D1D1D1;
 }

@@ -101,13 +101,13 @@ h2 {
 }
 
 .placeholder-list {
-  height: 500px;
+  min-height: 500px;
 }
 
 .add-task-container-position {
   position: absolute;
   top: 50px;
-  right: 0;
+  right: 0px;
   z-index: 100;
   transition: transform 0.2s ease-in-out;
   transform: translateX(2000px);
@@ -118,4 +118,8 @@ h2 {
   right: 145px;
 }
 
+.give-opacity {
+  opacity: 0.3 !important;
+  pointer-events: none;
+}
 
