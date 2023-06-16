@@ -12,11 +12,14 @@ import { SummaryComponent } from './components/summary/summary.component';
 import { LegalnoticeComponent } from './components/legalnotice/legalnotice.component';
 import { BoardComponent } from './components/board/board.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
-import { AddtaskboardbuttonComponent } from './components/addtaskboardbutton/addtaskboardbutton.component';
+import { AddtaskboardbuttonComponent } from './components/addtaskpopup/addtaskboardbutton.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AddtaskComponent } from './components/addtask/addtask.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ContactsComponent } from './components/contacts/contacts.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LegalnoticeComponent,
     BoardComponent,
     AddtaskboardbuttonComponent,
+    AddtaskComponent,
+    ContactsComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatInputModule,
     MatFormFieldModule,
     MatSelectModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

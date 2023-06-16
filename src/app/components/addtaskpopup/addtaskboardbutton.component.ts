@@ -7,14 +7,6 @@ import { AddtaskfieldserviceService } from 'src/app/services/addtaskfieldservice
   selector: 'app-addtaskboardbutton',
   templateUrl: './addtaskboardbutton.component.html',
   styleUrls: ['./addtaskboardbutton.component.scss'],
-  animations: [
-    trigger('slide', [
-      state('in', style({ right: '140px' })),
-      state('out', style({ right: '-2000px' })),
-      transition('void => *', animate('1s ease-in-out')), // Wenn das Element erzeugt wird
-      transition('* => void', animate('1s ease-in-out'))  // Wenn das Element zerstört wird
-    ])
-  ]
 })
 export class AddtaskboardbuttonComponent implements OnInit {
 

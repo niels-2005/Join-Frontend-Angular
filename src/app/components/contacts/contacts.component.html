@@ -1,0 +1,35 @@
+<app-sitebar></app-sitebar>
+<app-kanbanprojecttoolheader></app-kanbanprojecttoolheader>
+
+<div class="contents-container">
+  <div class="contacts-sitebar">
+    <div
+      *ngFor="let initial of contacts | keyvalue"
+      class="contact-details-container"
+    >
+      <h2>{{ initial.key }}</h2>
+      <div class="horizontal-line"></div>
+      <div *ngFor="let contact of initial.value">
+        <div class="contact-details">
+          <span class="contact-initials">{{ getInitials(contact.name) }}</span>
+          <div class="contact-name-and-email">
+            <span class="name-span">{{ contact.name }}</span>
+            <span class="email-span">{{ contact.email }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="contacts-content-right">
+    <div class="contacts-headline">
+      <h1>Contacts</h1>
+      <div class="vertikal-line bg-color-blue"></div>
+      <span>Better with a team</span>
+    </div>
+  </div>
+  <button
+    class="new-contact-button button-style-dark-bg transition-ease-in-out"
+  >
+    New contact
+  </button>
+</div>

@@ -3,22 +3,11 @@
   padding-top: 50px;
 }
 
-.summary-headline {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  h1 {
-    font-size: 64px;
-  }
-  span {
-    font-size: 28px;
-  }
-}
-
 .summary-task-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 50px;
 }
 
 .summary-tasks-left-container {
@@ -129,4 +118,5 @@
 .greet-name {
   margin: 0;
   color: #29ABE2;
+  font-weight: bold;
 }
