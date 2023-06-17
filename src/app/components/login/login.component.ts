@@ -8,6 +8,60 @@ import { HideOrShowPasswortInInputServiceService } from 'src/app/services/hide-o
 })
 export class LoginComponent implements OnInit {
 
+  username: string = '';
+  email: string = '';
+  password: string = '';
+
+  async login() {
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    const raw = JSON.stringify({
+      username: this.username,
+      email: this.email,
+      password: this.password
+    });
+
+    const requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+    };
+
+    const url = 'https://nielsscholz.pythonanywhere.com/api/login/';
+
+    try {
+      const resp = await fetch(url, requestOptions);
+      const json = await resp.json();
+
+      if (resp.ok) {
+        localStorage.setItem('token', json.key);
+        console.log('User login successful');
+      } else {
+        this.showLoginErrorMessage(json);
+        console.log('User login failed:', json);
+      }
+    } catch (error) {
+      console.log('Error during login:', error);
+    }
+  }
+
+  showLoginErrorMessage(json: any) {
+    this.showError('username-error-login', json.username);
+    this.showError('email-error-login', json.email);
+    this.showError('password-error-login', json.password);
+    this.showError('password-error-login', json.non_field_errors);
+  }
+
+  showError(elementId: string, error: string[] | undefined) {
+    const element = document.getElementById(elementId);
+    if (element && error) {
+      element.innerHTML = error[0];
+    }
+  }
+
+
+
   ngOnInit(): void {
       setTimeout(() => {
         this.deleteAnimations();

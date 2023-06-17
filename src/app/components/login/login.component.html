@@ -31,14 +31,37 @@
   >
     <h1>Log in</h1>
     <div class="blue-line"></div>
-    <form class="form-container mt-16">
+    <form class="form-container mt-16" (ngSubmit)="login()">
       <label class="form-input-label">
-        <input type="email" class="login-input" placeholder="Email" />
+        <input
+          type="text"
+          name="username"
+          class="login-input"
+          placeholder="Username"
+          [(ngModel)]="username"
+          required
+        />
+        <img src="/assets/img/user.png" alt="User Symbol" />
+      </label>
+      <span id="username-error-login" class="error-message"></span>
+      <label class="form-input-label">
+        <input
+          type="email"
+          name="email"
+          required
+          [(ngModel)]="email"
+          class="login-input"
+          placeholder="Email"
+        />
         <img src="/assets/img/mail-icon.png" alt="Mailsymbol" />
       </label>
+      <span id="email-error-login" class="error-message"></span>
       <label class="form-input-label">
         <input
           type="password"
+          name="password"
+          required
+          [(ngModel)]="password"
           class="login-input"
           placeholder="Password"
           id="password-input"
@@ -69,12 +92,12 @@
           "
         />
       </label>
+      <span id="password-error-login" class="error-message"></span>
       <div class="forgot-my-password-container">
         <input type="checkbox" />
         <span>Remember me</span>
         <span
           class="fmp-span"
-          href="#"
           (click)="
             switchContainer(
               'sign-in-button-container',

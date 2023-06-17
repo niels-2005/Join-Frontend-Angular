@@ -13,3 +13,23 @@
   }
 }
 
+.register-input {
+  width: 422px;
+  height: 50px;
+  border-style: unset;
+  border: 1px solid #D1D1D1;
+  border-radius: 10px;
+  background-repeat: no-repeat;
+  background-position: right 30px center;
+  padding-left: 15px;
+  padding-top: 5px;
+  font-size: 20px;
+  &::placeholder{
+    font-size: 20px;
+    color: #D1D1D1;
+}
+&:focus{
+  outline: none;
+  border: 1px solid #D1D1D1;
+}
+}

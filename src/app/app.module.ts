@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddtaskComponent } from './components/addtask/addtask.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContactsComponent } from './components/contacts/contacts.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ContactsComponent } from './components/contacts/contacts.component';
     MatFormFieldModule,
     MatSelectModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
