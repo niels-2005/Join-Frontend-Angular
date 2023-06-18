@@ -31,7 +31,7 @@
   >
     <h1>Log in</h1>
     <div class="blue-line"></div>
-    <form class="form-container mt-16" (ngSubmit)="login()">
+    <form class="form-container mt-16">
       <label class="form-input-label">
         <input
           type="text"
@@ -109,8 +109,10 @@
         >
       </div>
       <div class="log-in-button-container">
-        <button class="user-login-button">Log in</button>
-        <button class="guest-login-button">Guest Log in</button>
+        <button class="user-login-button" (click)="login()">Log in</button>
+        <button class="guest-login-button" (click)="guestLogin()">
+          Guest Log in
+        </button>
       </div>
     </form>
   </div>

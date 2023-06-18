@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { HideOrShowPasswortInInputServiceService } from 'src/app/services/hide-or-show-passwort-in-input-service.service';
 
 
@@ -9,7 +10,7 @@ import { HideOrShowPasswortInInputServiceService } from 'src/app/services/hide-o
 })
 export class RegisterComponent {
 
-  constructor(private hideOrShowPasswordService: HideOrShowPasswortInInputServiceService) { }
+  constructor(private hideOrShowPasswordService: HideOrShowPasswortInInputServiceService, private router: Router) { }
 
   username: string = '';
   email: string = '';
@@ -24,6 +25,7 @@ export class RegisterComponent {
       .then(({ ok, body }) => {
         if (ok) {
           this.storeToken(body.key);
+          this.switchToLoginContainer();
           console.log('User Sign Up successful');
         } else {
           this.showSignUpErrorMessages(body);

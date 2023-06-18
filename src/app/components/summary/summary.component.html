@@ -12,21 +12,27 @@
       <div class="summary-tasks-left-container">
         <div class="summary-tasks-top-container">
           <div class="quadrat-task-container">
-            <span class="font-size-48 font-weight-bold">5</span>
+            <span class="font-size-48 font-weight-bold">{{
+              tasks.length
+            }}</span>
             <span class="font-size-20 text-align-center"
               >Tasks in <br />
               Board</span
             >
           </div>
           <div class="quadrat-task-container">
-            <span class="font-size-48 font-weight-bold">2</span>
+            <span class="font-size-48 font-weight-bold">{{
+              inProgressTasks.length
+            }}</span>
             <span class="font-size-20 text-align-center"
               >Tasks in <br />
               Progress</span
             >
           </div>
           <div class="quadrat-task-container">
-            <span class="font-size-48 font-weight-bold">2</span>
+            <span class="font-size-48 font-weight-bold">{{
+              awaitingFeedbackTasks.length
+            }}</span>
             <span class="font-size-20 text-align-center"
               >Awaiting <br />
               Feedback</span
@@ -34,39 +40,63 @@
           </div>
         </div>
         <div class="summary-deadline-container">
-          <img
-            src="/assets/img/urgent-icon.png"
-            alt="Priority Symbol"
-            class="priority-status-image"
-          />
-          <div class="show-task-prio-container">
-            <span class="font-weight-bold font-size-40">1</span>
-            <span>Urgent</span>
+          <div class="deadline-left-container">
+            <span class="deadline-title">{{ nextDeadlineTask?.title }}</span>
+            <div class="deadline-show-prio-container">
+              <img
+                src="/assets/img/urgent.icon2.png"
+                alt="Priority Symbol"
+                class="priority-status-image"
+                *ngIf="nextDeadlineTask?.priority === 'U'"
+              />
+              <img
+                src="/assets/img/urgent-icon3.png"
+                alt="Priority Symbol"
+                class="priority-status-image"
+                *ngIf="nextDeadlineTask?.priority === 'M'"
+              />
+              <img
+                src="/assets/img/urgent-icon4.png"
+                alt="Priority Symbol"
+                class="priority-status-image"
+                *ngIf="nextDeadlineTask?.priority === 'L'"
+              />
+              <div class="show-task-prio-container">
+                <span class="font-weight-bold font-size-40">1</span>
+                <span>{{ getPriorityText(nextDeadlineTask?.priority) }}</span>
+              </div>
+            </div>
           </div>
           <div class="vertikal-line bg-color-grey height-100 ml-mr-24"></div>
           <div class="deadline-date-container">
-            <span class="font-size-20 font-weight-bold">June 16, 2023</span>
+            <span class="font-size-20 font-weight-bold">{{
+              formatDate(nextDeadlineTask?.deadline)
+            }}</span>
             <span>Upcoming Deadline</span>
           </div>
         </div>
         <div class="summary-tasks-bottom-container">
           <div class="image-task-container change-todo-image-while-hover">
             <div class="flex-container mr-64">
-              <span class="font-size-48 font-weight-bold">1</span>
+              <span class="font-size-48 font-weight-bold">{{
+                todoTasks.length
+              }}</span>
               <span class="font-size-20 text-align-center">To-do</span>
             </div>
           </div>
           <div class="image-task-container change-done-image-while-hover">
             <div class="flex-container mr-64">
-              <span class="font-size-48 font-weight-bold">1</span>
+              <span class="font-size-48 font-weight-bold">{{
+                doneTasks.length
+              }}</span>
               <span class="font-size-20 text-align-center">Done</span>
             </div>
           </div>
         </div>
       </div>
       <div class="mr-128">
-        <span class="font-size-48">Good Morning,</span>
-        <h2 class="font-size-64 greet-name mt-16">Niels Scholz</h2>
+        <span class="font-size-48" id="greeting-time"></span>
+        <h2 class="font-size-64 greet-name mt-16" id="greet-user"></h2>
       </div>
     </div>
   </div>

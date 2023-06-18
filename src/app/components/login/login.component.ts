@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HideOrShowPasswortInInputServiceService } from 'src/app/services/hide-or-show-passwort-in-input-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -36,6 +37,8 @@ export class LoginComponent implements OnInit {
 
       if (resp.ok) {
         localStorage.setItem('token', json.key);
+        localStorage.setItem('username', this.username);
+        this.router.navigate(['/summary']);
         console.log('User login successful');
       } else {
         this.showLoginErrorMessage(json);
@@ -60,8 +63,6 @@ export class LoginComponent implements OnInit {
     }
   }
 
-
-
   ngOnInit(): void {
       setTimeout(() => {
         this.deleteAnimations();
@@ -73,7 +74,7 @@ export class LoginComponent implements OnInit {
     document.getElementById('sign-in-button-container')!.classList.remove('fade-in-animation');
   }
 
-  constructor(private hideOrShowPasswordService: HideOrShowPasswortInInputServiceService) { }
+  constructor(private hideOrShowPasswordService: HideOrShowPasswortInInputServiceService, private router: Router) { }
 
   showOrHidePassword(id1: string, id2: string, id3: string): void {
     this.hideOrShowPasswordService.showOrHidePassword(id1, id2, id3);
@@ -83,5 +84,10 @@ export class LoginComponent implements OnInit {
     document.getElementById(id1)!.classList.add('d-none');
     document.getElementById(id2)!.classList.add('d-none');
     document.getElementById(id3)!.classList.remove('d-none');
+  }
+
+   guestLogin() {
+    this.router.navigate(['/summary']);
+    localStorage.removeItem('username');
   }
 }

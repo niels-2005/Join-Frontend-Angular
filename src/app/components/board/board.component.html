@@ -20,6 +20,7 @@
       <div>
         <h2>To do</h2>
         <div
+          id="cdk-drop-list-0"
           cdkDropList
           [cdkDropListData]="todo"
           class="placeholder-list"
@@ -27,10 +28,38 @@
         >
           <div
             class="each-task-styling-container"
-            *ngFor="let item of todo"
+            *ngFor="let task of todo"
             cdkDrag
+            [cdkDragData]="task"
           >
-            {{ item }}
+            <div [style.background-color]="task.color" class="category-style">
+              {{ task.category }}
+            </div>
+            <h3>{{ task.title }}</h3>
+            <span class="task-description">{{ task.description }}</span>
+            <div class="workers-and-priority-container">
+              <span class="assigned-to-workers">
+                {{ getInitials(task.assigned_to_names) }}
+              </span>
+              <img
+                *ngIf="task.priority === 'U'"
+                src="/assets/img/urgent.icon2.png"
+                alt="Prio Icon"
+                class="priority-image"
+              />
+              <img
+                *ngIf="task.priority === 'M'"
+                src="/assets/img/urgent-icon3.png"
+                alt="Prio Icon"
+                class="priority-image"
+              />
+              <img
+                *ngIf="task.priority === 'L'"
+                src="/assets/img/urgent-icon4.png"
+                alt="Prio Icon"
+                class="priority-image"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -38,6 +67,7 @@
       <div>
         <h2>In progress</h2>
         <div
+          id="cdk-drop-list-1"
           cdkDropList
           [cdkDropListData]="inProgress"
           class="placeholder-list"
@@ -45,10 +75,38 @@
         >
           <div
             class="each-task-styling-container"
-            *ngFor="let item of inProgress"
+            *ngFor="let task of inProgress"
             cdkDrag
+            [cdkDragData]="task"
           >
-            {{ item }}
+            <div [style.background-color]="task.color" class="category-style">
+              {{ task.category }}
+            </div>
+            <h3>{{ task.title }}</h3>
+            <span class="task-description">{{ task.description }}</span>
+            <div class="workers-and-priority-container">
+              <span class="assigned-to-workers">
+                {{ getInitials(task.assigned_to_names) }}
+              </span>
+              <img
+                *ngIf="task.priority === 'U'"
+                src="/assets/img/urgent.icon2.png"
+                alt="Prio Icon"
+                class="priority-image"
+              />
+              <img
+                *ngIf="task.priority === 'M'"
+                src="/assets/img/urgent-icon3.png"
+                alt="Prio Icon"
+                class="priority-image"
+              />
+              <img
+                *ngIf="task.priority === 'L'"
+                src="/assets/img/urgent-icon4.png"
+                alt="Prio Icon"
+                class="priority-image"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -56,6 +114,7 @@
       <div>
         <h2>Awaiting Feedback</h2>
         <div
+          id="cdk-drop-list-2"
           cdkDropList
           [cdkDropListData]="awaitingFeedback"
           class="placeholder-list"
@@ -63,10 +122,38 @@
         >
           <div
             class="each-task-styling-container"
-            *ngFor="let item of awaitingFeedback"
+            *ngFor="let task of awaitingFeedback"
             cdkDrag
+            [cdkDragData]="task"
           >
-            {{ item }}
+            <div [style.background-color]="task.color" class="category-style">
+              {{ task.category }}
+            </div>
+            <h3>{{ task.title }}</h3>
+            <span class="task-description">{{ task.description }}</span>
+            <div class="workers-and-priority-container">
+              <span class="assigned-to-workers">
+                {{ getInitials(task.assigned_to_names) }}
+              </span>
+              <img
+                *ngIf="task.priority === 'U'"
+                src="/assets/img/urgent.icon2.png"
+                alt="Prio Icon"
+                class="priority-image"
+              />
+              <img
+                *ngIf="task.priority === 'M'"
+                src="/assets/img/urgent-icon3.png"
+                alt="Prio Icon"
+                class="priority-image"
+              />
+              <img
+                *ngIf="task.priority === 'L'"
+                src="/assets/img/urgent-icon4.png"
+                alt="Prio Icon"
+                class="priority-image"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -74,6 +161,7 @@
       <div>
         <h2>Done</h2>
         <div
+          id="cdk-drop-list-3"
           cdkDropList
           [cdkDropListData]="done"
           class="placeholder-list"
@@ -81,10 +169,38 @@
         >
           <div
             class="each-task-styling-container"
-            *ngFor="let item of done"
+            *ngFor="let task of done"
             cdkDrag
+            [cdkDragData]="task"
           >
-            {{ item }}
+            <div [style.background-color]="task.color" class="category-style">
+              {{ task.category }}
+            </div>
+            <h3>{{ task.title }}</h3>
+            <span class="task-description">{{ task.description }}</span>
+            <div class="workers-and-priority-container">
+              <span class="assigned-to-workers">
+                {{ getInitials(task.assigned_to_names) }}
+              </span>
+              <img
+                *ngIf="task.priority === 'U'"
+                src="/assets/img/urgent.icon2.png"
+                alt="Prio Icon"
+                class="priority-image"
+              />
+              <img
+                *ngIf="task.priority === 'M'"
+                src="/assets/img/urgent-icon3.png"
+                alt="Prio Icon"
+                class="priority-image"
+              />
+              <img
+                *ngIf="task.priority === 'L'"
+                src="/assets/img/urgent-icon4.png"
+                alt="Prio Icon"
+                class="priority-image"
+              />
+            </div>
           </div>
         </div>
       </div>

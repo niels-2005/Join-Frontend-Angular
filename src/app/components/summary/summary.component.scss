@@ -71,7 +71,9 @@
 }
 
 .priority-status-image {
-  height: 50px;
+  height: 30px;
+  object-fit: contain;
+  margin-right: 20px;
 }
 
 .summary-tasks-bottom-container {
@@ -119,4 +121,24 @@
   margin: 0;
   color: #29ABE2;
   font-weight: bold;
+  text-align: center;
+}
+
+.deadline-left-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.deadline-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.deadline-show-prio-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
 }
