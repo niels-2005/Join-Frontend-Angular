@@ -68,6 +68,10 @@ body {
   margin-top: 16px !important;
 }
 
+.mt-0 {
+  margin-top: 0px !important;
+}
+
 .ml-mr-24 {
   margin-left: 24px;
   margin-right: 24px;
@@ -95,6 +99,10 @@ body {
 
 .height-100 {
   height: 100px !important;
+}
+
+.width-200 {
+  width: 200px !important;
 }
 
 .text-align-center {
@@ -264,4 +272,41 @@ a {
   align-items: center;
   max-width: 422px !important;
   text-align: center;
+}
+
+//
+.add-task-button-container {
+  display: flex;
+  gap: 30px;
+  justify-content: flex-end;
+  margin-top: 250px;
+}
+
+.cancel-button-style {
+  height: 50px;
+  width: 130px;
+  font-size: 22px;
+  border-radius: 10px;
+  cursor: pointer;
+  background-image: url('/assets/img/cross-icon.png');
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+  padding-right: 35px;
+  &:hover {
+    background-image: url('/assets/img/blue-cross.png');
+  }
+}
+
+.create-task-button-style {
+  border-style: unset;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 22px;
+  height: 50px;
+  width: 180px;
+  padding-right: 35px;
+  background-image: url('/assets/img/done.png');
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+  padding-right: 35px;
 }

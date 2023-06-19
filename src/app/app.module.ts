@@ -21,6 +21,7 @@ import { AddtaskComponent } from './components/addtask/addtask.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { FormsModule } from '@angular/forms';
+import { AddcontactpopupComponent } from './components/addcontactpopup/addcontactpopup.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { FormsModule } from '@angular/forms';
     AddtaskboardbuttonComponent,
     AddtaskComponent,
     ContactsComponent,
+    AddcontactpopupComponent,
   ],
   imports: [
     BrowserModule,
