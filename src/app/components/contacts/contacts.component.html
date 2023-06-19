@@ -11,7 +11,11 @@
       <div class="horizontal-line"></div>
       <div *ngFor="let contact of initial.value">
         <div class="contact-details">
-          <span class="contact-initials">{{ getInitials(contact.name) }}</span>
+          <span
+            class="contact-initials"
+            [ngStyle]="{ 'background-color': contact.color }"
+            >{{ getInitials(contact.name) }}</span
+          >
           <div class="contact-name-and-email">
             <span class="name-span">{{ contact.name }}</span>
             <span class="email-span">{{ contact.email }}</span>

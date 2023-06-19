@@ -12,12 +12,13 @@ export class ContactsComponent {
 
   constructor(private contactService: ContactserviceService) { }
 
-  ngOnInit(): void {
-    this.contacts = this.groupByInitial(this.contactService.getContacts());
+  async ngOnInit(): Promise<void> {
+    const fetchedContacts = await this.contactService.getContacts();
+    this.contacts = this.groupByInitial(fetchedContacts);
   }
 
-  groupByInitial(contacts: { name: string, initial: string, color: string }[]) {
-    const groupedContacts: { [key: string]: { name: string, initial: string, color: string }[] } = {};
+  groupByInitial(contacts: { name: string, initial: string, color: string, email: string, phone: string }[]) {
+    const groupedContacts: { [key: string]: { name: string, initial: string, color: string, email: string, phone: string }[] } = {};
 
     for (const contact of contacts) {
       if (!groupedContacts[contact.initial]) {
@@ -34,6 +35,4 @@ export class ContactsComponent {
     return name.split(' ').map((n,i,a)=> i === 0 || i+1 === a.length ? n[0] : null).join('').toUpperCase();
   }
 
-
 }
-
