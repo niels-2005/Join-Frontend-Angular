@@ -12,8 +12,8 @@ export class AddtaskboardbuttonComponent implements OnInit {
 
   constructor (private popupService: AddtaskfieldserviceService) {}
 
-  closeTaskField(id1: string){
-    this.popupService.closeTaskField(id1);
+  closeTaskField(id1: string, id2: string){
+    this.popupService.closeTaskField(id1, id2);
   }
 
   ngOnInit(): void {

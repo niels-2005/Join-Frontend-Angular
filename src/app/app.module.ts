@@ -22,6 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { FormsModule } from '@angular/forms';
 import { AddcontactpopupComponent } from './components/addcontactpopup/addcontactpopup.component';
+import { EditcontactpopupComponent } from './components/editcontactpopup/editcontactpopup.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { AddcontactpopupComponent } from './components/addcontactpopup/addcontac
     AddtaskComponent,
     ContactsComponent,
     AddcontactpopupComponent,
+    EditcontactpopupComponent,
   ],
   imports: [
     BrowserModule,

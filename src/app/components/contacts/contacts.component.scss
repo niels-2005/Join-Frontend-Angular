@@ -116,3 +116,73 @@
   opacity: 0.3 !important;
   pointer-events: none;
 }
+
+.contact-initials-and-name {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  margin-left: 100px;
+  margin-top: 30px;
+  h3 {
+    font-size: 40px;
+    font-weight: bold;
+    margin: 0;
+  }
+  span {
+    font-size: 32px;
+  }
+}
+
+.contact-edit-contact {
+  margin-left: 100px;
+  margin-top: 30px;
+  display: flex;
+  align-items: flex-end;
+  gap: 50px;
+  span {
+    font-size: 20px;
+  }
+}
+
+.contact-edit-pencil {
+  cursor: pointer;
+  font-size: 18px !important;
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  height: 30px;
+  padding-left: 25px;
+  background-image: url('/assets/img/pencil-icon-edit.png');
+  background-repeat: no-repeat;
+  background-position: left center;
+  &:hover {
+    color: #29ABE2;
+    background-image: url('/assets/img/blue-pencil.png');
+  }
+}
+
+.contact-email-and-phone {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 30px;
+  margin-left: 100px;
+}
+
+.strong-span {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.border-white {
+  border: 2px solid white !important;
+}
+
+.blue-email {
+  color: #29ABE2;
+  font-size: 18px;
+}
+
+.photo-span {
+  font-size: 18px;
+}

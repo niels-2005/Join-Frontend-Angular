@@ -10,6 +10,7 @@ import { ContactserviceService } from 'src/app/services/contactservice.service';
 export class ContactsComponent {
 
   contacts!: { [key: string]: any };
+  selectedContact: any;
 
   constructor(private contactService: ContactserviceService, private popupService: AddtaskfieldserviceService) {
     this.contactService.contacts$.subscribe(groupedContacts => {
@@ -19,6 +20,15 @@ export class ContactsComponent {
 
   async ngOnInit(): Promise<void> {
     await this.contactService.getContacts();
+    this.subscribeToSelectedContact();
+  }
+
+  subscribeToSelectedContact(): void {
+    this.contactService.selectedContact$.subscribe(
+      contact => {
+        this.selectedContact = contact;
+      }
+    );
   }
 
   groupByInitial(contacts: { name: string, initial: string, color: string, email: string, phone: string }[]) {
@@ -37,8 +47,12 @@ export class ContactsComponent {
     return name.split(' ').map((n,i,a)=> i === 0 || i+1 === a.length ? n[0] : null).join('').toUpperCase();
   }
 
-  openTaskField(id1: string) {
-    this.popupService.openTaskField(id1);
+  openTaskField(id1: string, id2: string) {
+    this.popupService.openTaskField(id1, id2);
+  }
+
+  onContactClick(contact: any) {
+    this.selectedContact = contact;
   }
 
 }

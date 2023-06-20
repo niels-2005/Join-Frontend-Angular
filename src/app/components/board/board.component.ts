@@ -80,8 +80,8 @@ export class BoardComponent implements OnInit {
     }
   }
 
-  openTaskField(id1: string) {
-    this.popupService.openTaskField(id1);
+  openTaskField(id1: string, id2: string) {
+    this.popupService.openTaskField(id1, id2);
   }
 
   getStatus(id: string) {

@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 type Contact = {
+  id: number;
   name: string;
   initial: string;
   color: string;
@@ -39,6 +41,7 @@ export class ContactserviceService {
 
     const contacts = data.map((contact: any): Contact => {
       return {
+        id: contact.id,
         name: contact.name,
         email: contact.email,
         phone: contact.phone,
@@ -62,5 +65,12 @@ export class ContactserviceService {
     }
 
     return groupedContacts;
+  }
+
+  private selectedContactSubject = new BehaviorSubject<any>(null);
+  selectedContact$ = this.selectedContactSubject.asObservable();
+
+  setSelectedContact(contact: any) {
+    this.selectedContactSubject.next(contact);
   }
 }
