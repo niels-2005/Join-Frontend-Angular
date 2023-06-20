@@ -4,7 +4,7 @@
       src="/assets/img/cross-icon.png"
       alt="X Icon"
       class="x-image"
-      (click)="closeTaskField()"
+      (click)="closeTaskField('board-container')"
     />
     <h1>Add Task</h1>
     <form class="add-task-content-container">
@@ -94,7 +94,7 @@
         <div class="add-task-button-container">
           <button
             class="button-style-white-bg cancel-button-style transition-ease-in-out"
-            (click)="closeTaskField()"
+            (click)="closeTaskField('board-container')"
           >
             Cancel
           </button>

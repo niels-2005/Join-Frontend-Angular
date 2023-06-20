@@ -1,7 +1,5 @@
 .contact-popup-container {
-  position: absolute;
-  left: 400px;
-  top: 250px;
+  position: relative;
   display: flex;
 }
 
@@ -12,7 +10,7 @@
   flex-direction: column;
   align-items: flex-start;
   background-color: #2A3647;
-  padding: 128px 40px;
+  padding: 168px 40px;
   img {
     height: 75px;
     object-fit: contain;
@@ -66,5 +64,12 @@
   margin-top: 50px;
   display: flex;
   flex-direction: column;
-  gap: 42px;
+}
+
+.cross-image {
+  position: absolute;
+  right: 50px;
+  top: 30px;
+  height: 20px;
+  cursor: pointer;
 }

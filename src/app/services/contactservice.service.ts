@@ -1,35 +1,66 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
+
+type Contact = {
+  name: string;
+  initial: string;
+  color: string;
+  email: string;
+  phone: string;
+}
+
+type GroupedContacts = { [key: string]: Contact[] };
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContactserviceService {
+  private contacts = new Subject<GroupedContacts>();
+  contacts$ = this.contacts.asObservable();
 
-  constructor() { }
-
-  async getContacts(): Promise<{ name: string, initial: string, color: string, email: string, phone: string }[]> {
-
-    var myHeaders = new Headers();
+  private getHeaders(): Headers {
+    const myHeaders = new Headers();
     myHeaders.append("Authorization", "Token ce7ec33f2e134130748df55fc7dd7f27a6089b14");
+    return myHeaders;
+  }
 
-    var requestOptions = {
+  private getRequestOptions(): RequestInit {
+    return {
       method: 'GET',
-      headers: myHeaders,
+      headers: this.getHeaders(),
     };
+  }
 
-    let response = await fetch("http://127.0.0.1:8000/api/join/contacts", requestOptions)
-    let data = await response.json();
+  async getContacts(): Promise<void> {
+    const requestOptions = this.getRequestOptions();
 
-    let contacts = data.map((contact: any) => {
-        return {
-            name: contact.name,
-            email: contact.email,
-            phone: contact.phone,
-            initial: contact.name.charAt(0),
-            color: contact.color
-        };
+    const response = await fetch("http://127.0.0.1:8000/api/join/contacts", requestOptions)
+    const data = await response.json();
+
+    const contacts = data.map((contact: any): Contact => {
+      return {
+        name: contact.name,
+        email: contact.email,
+        phone: contact.phone,
+        initial: contact.name.charAt(0),
+        color: contact.color
+      };
     });
 
-    return contacts;
+    this.contacts.next(this.groupByInitial(contacts));
+  }
+
+  groupByInitial(contacts: Contact[]): GroupedContacts {
+    const groupedContacts: GroupedContacts = {};
+
+    for (const contact of contacts) {
+      if (!groupedContacts[contact.initial]) {
+        groupedContacts[contact.initial] = [];
+      }
+
+      groupedContacts[contact.initial].push(contact);
+    }
+
+    return groupedContacts;
   }
 }

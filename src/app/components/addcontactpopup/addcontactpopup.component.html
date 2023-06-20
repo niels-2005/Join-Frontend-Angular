@@ -1,4 +1,10 @@
 <div class="contact-popup-container">
+  <img
+    src="/assets/img/cross-icon.png"
+    alt="X Icon"
+    class="cross-image"
+    (click)="closeContactField('contacts-container')"
+  />
   <div class="contact-popup-left-content">
     <img src="/assets/img/Join-icon.png" alt="Join Logo" />
     <h1>Add contact</h1>
@@ -13,14 +19,15 @@
       <label class="form-input-label">
         <input
           type="text"
-          name="username"
+          name="name"
           class="login-input"
-          placeholder="Username"
-          [(ngModel)]="username"
+          placeholder="Name"
+          [(ngModel)]="name"
           required
         />
         <img src="/assets/img/user.png" alt="User Symbol" />
       </label>
+      <span class="error-message"></span>
       <label class="form-input-label">
         <input
           type="email"
@@ -32,10 +39,11 @@
         />
         <img src="/assets/img/mail-icon.png" alt="Mailsymbol" />
       </label>
+      <span id="email-error" class="error-message"></span>
       <label class="form-input-label">
         <input
-          type="text"
-          name="username"
+          type="number"
+          name="phone"
           class="login-input"
           placeholder="Phone"
           [(ngModel)]="phone"
@@ -46,12 +54,13 @@
       <div class="add-task-button-container mt-0">
         <button
           class="button-style-white-bg cancel-button-style transition-ease-in-out"
-          (click)="closeContactField()"
+          (click)="closeContactField('contacts-container')"
         >
           Cancel
         </button>
         <button
           class="button-style-dark-bg create-task-button-style transition-ease-in-out width-200"
+          (click)="createContact()"
         >
           Create contact
         </button>

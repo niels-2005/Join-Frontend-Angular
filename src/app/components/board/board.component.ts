@@ -73,15 +73,15 @@ export class BoardComponent implements OnInit {
       const previousStatus = this.getStatus(event.previousContainer.id);
       const newStatus = this.getStatus(event.container.id);
 
-      // Hier könnte man die Funktion aufrufen, um das Backend zu aktualisieren
+
       this.taskService.updateStatus(item.id, newStatus).subscribe((result) => {
-        // Status wurde erfolgreich aktualisiert
+
       });
     }
   }
 
-  openTaskField() {
-    this.popupService.openTaskField();
+  openTaskField(id1: string) {
+    this.popupService.openTaskField(id1);
   }
 
   getStatus(id: string) {

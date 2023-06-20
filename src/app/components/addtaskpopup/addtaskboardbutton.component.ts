@@ -1,5 +1,4 @@
-import { Component, Output, OnInit, EventEmitter, Input } from '@angular/core';
-import { trigger, state, style, animate, transition } from '@angular/animations';
+import { Component, OnInit } from '@angular/core';
 import { AddtaskfieldserviceService } from 'src/app/services/addtaskfieldservice.service';
 
 
@@ -13,8 +12,8 @@ export class AddtaskboardbuttonComponent implements OnInit {
 
   constructor (private popupService: AddtaskfieldserviceService) {}
 
-  closeTaskField(){
-    this.popupService.closeTaskField();
+  closeTaskField(id1: string){
+    this.popupService.closeTaskField(id1);
   }
 
   ngOnInit(): void {
