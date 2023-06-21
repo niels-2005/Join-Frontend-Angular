@@ -23,18 +23,21 @@
           required
         ></textarea>
         <span class="span-titles">Category</span>
-        <input
-          type="text"
-          placeholder="Select task category"
-          class="selected-inputs-style"
-          formControlName="category"
-          required
-        />
+        <div class="input-color-container">
+          <input
+            type="text"
+            placeholder="Enter task category"
+            class="input-style"
+            formControlName="category"
+            required
+          />
+          <input type="color" class="color-picker" />
+        </div>
         <span class="span-titles">Assigned to</span>
         <input
           type="text"
-          placeholder="Select contacts to assign"
-          class="selected-inputs-style"
+          placeholder="Enter contacts to assign"
+          class="input-style"
           formControlName="assignedTo"
           required
         />
@@ -99,14 +102,6 @@
             <span>Low</span>
           </div>
         </div>
-        <span class="span-titles">Subtasks</span>
-        <input
-          type="text"
-          class="selected-inputs-style subtask-input"
-          placeholder="Add new subtask"
-          formControlName="subtask"
-          required
-        />
         <div class="add-task-button-container">
           <button
             type="button"

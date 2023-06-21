@@ -11,7 +11,7 @@
     <div class="summary-task-container">
       <div class="summary-tasks-left-container">
         <div class="summary-tasks-top-container">
-          <div class="quadrat-task-container">
+          <div class="quadrat-task-container" routerLink="/board">
             <span class="font-size-48 font-weight-bold">{{
               tasks.length
             }}</span>
@@ -20,7 +20,7 @@
               Board</span
             >
           </div>
-          <div class="quadrat-task-container">
+          <div class="quadrat-task-container" routerLink="/board">
             <span class="font-size-48 font-weight-bold">{{
               inProgressTasks.length
             }}</span>
@@ -29,7 +29,7 @@
               Progress</span
             >
           </div>
-          <div class="quadrat-task-container">
+          <div class="quadrat-task-container" routerLink="/board">
             <span class="font-size-48 font-weight-bold">{{
               awaitingFeedbackTasks.length
             }}</span>
@@ -39,7 +39,7 @@
             >
           </div>
         </div>
-        <div class="summary-deadline-container">
+        <div class="summary-deadline-container" routerLink="/board">
           <div class="deadline-left-container">
             <span class="deadline-title">{{ nextDeadlineTask?.title }}</span>
             <div class="deadline-show-prio-container">
@@ -77,7 +77,7 @@
         </div>
         <div class="summary-tasks-bottom-container">
           <div class="image-task-container change-todo-image-while-hover">
-            <div class="flex-container mr-64">
+            <div class="flex-container mr-64" routerLink="/board">
               <span class="font-size-48 font-weight-bold">{{
                 todoTasks.length
               }}</span>
@@ -85,7 +85,7 @@
             </div>
           </div>
           <div class="image-task-container change-done-image-while-hover">
-            <div class="flex-container mr-64">
+            <div class="flex-container mr-64" routerLink="/board">
               <span class="font-size-48 font-weight-bold">{{
                 doneTasks.length
               }}</span>

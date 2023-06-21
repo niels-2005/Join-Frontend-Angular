@@ -6,6 +6,7 @@ import { LegalnoticeComponent } from './components/legalnotice/legalnotice.compo
 import { BoardComponent } from './components/board/board.component';
 import { AddtaskComponent } from './components/addtask/addtask.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
+import { HelpComponent } from './components/help/help.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'board', component: BoardComponent},
   {path: 'add-task', component: AddtaskComponent},
   {path: 'contacts', component: ContactsComponent},
+  {path: 'help', component: HelpComponent},
   { path: '', redirectTo: '/login', pathMatch: 'full'},
 ];
 

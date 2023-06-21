@@ -5,11 +5,14 @@
       src="/assets/img/f-zeich-neben-profil.png"
       alt="Help About Join"
       class="help-question-image"
+      routerLink="/help"
     />
     <img
       src="/assets/img/profil-photo.png"
       alt="Profile Picture"
       class="profile-picture-image"
+      (click)="toggleLogout()"
     />
+    <span id="logout-span" class="d-none" (click)="logoutUser()">Log out</span>
   </div>
 </div>

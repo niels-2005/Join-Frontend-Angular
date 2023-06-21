@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 
-type Contact = {
+export type Contact = {
   id: number;
   name: string;
   initial: string;

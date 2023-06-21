@@ -23,6 +23,8 @@ import { ContactsComponent } from './components/contacts/contacts.component';
 import { FormsModule } from '@angular/forms';
 import { AddcontactpopupComponent } from './components/addcontactpopup/addcontactpopup.component';
 import { EditcontactpopupComponent } from './components/editcontactpopup/editcontactpopup.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { HelpComponent } from './components/help/help.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { EditcontactpopupComponent } from './components/editcontactpopup/editcon
     ContactsComponent,
     AddcontactpopupComponent,
     EditcontactpopupComponent,
+    HelpComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,8 @@ import { EditcontactpopupComponent } from './components/editcontactpopup/editcon
     MatSelectModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]
