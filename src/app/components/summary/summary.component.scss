@@ -142,3 +142,131 @@
   gap: 20px;
   justify-content: center;
 }
+
+@media(max-width: 1500px){
+  .mr-mobile {
+    margin-right: 50px !important;
+  }
+}
+
+@media(max-width: 1270px){
+  .d-none-mobile {
+    display: none !important;
+  }
+}
+
+@media(max-width: 1000px) {
+  .summary-container {
+    padding-left: 0 !important;
+  }
+  .summary-task-container {
+    justify-content: center;
+  }
+}
+
+@media(max-width: 680px){
+  .summary-tasks-left-container {
+    align-items: center;
+  }
+  .summary-task-container {
+    margin-top: 25px;
+  }
+  .quadrat-task-container {
+    height: 130px !important;
+    width: 130px !important;
+  }
+  .summary-tasks-top-container {
+    justify-content: center;
+  }
+  .summary-deadline-container {
+    width: 450px;
+  }
+  .image-task-container {
+    width: 150px !important;
+    height: 150px !important;
+    div {
+      margin-right: 15px !important;
+    }
+}
+.change-done-image-while-hover {
+  background-position: 20px 45px;
+  background-size: 55px 55px;
+}
+.change-todo-image-while-hover {
+  background-position: 20px 45px;
+  background-size: 55px 55px;
+}
+.summary-tasks-bottom-container {
+  gap: 25px;
+}
+}
+
+@media(max-width: 475px){
+  .summary-task-container {
+    margin-top: 15px;
+  }
+  .summary-tasks-left-container {
+    gap: 15px;
+  }
+  .quadrat-task-container {
+    width: 100px !important;
+    height: 100px !important;
+    gap: 5px;
+    span {
+      font-size: 16px !important;
+    }
+    .font-size-mobile {
+      font-size: 38px !important;
+    }
+  }
+  .summary-deadline-container {
+    width: 350px;
+    gap: 20px;
+  }
+  .vertikal-line {
+    display: none;
+  }
+  .image-task-container {
+    height: 125px !important;
+    span {
+      font-size: 16px !important;
+    }
+    .font-size-mobile {
+      font-size: 38px !important;
+    }
+  }
+  .summary-tasks-bottom-container {
+    gap: 55px;
+  }
+  .change-done-image-while-hover {
+    background-position: 20px 35px;
+
+  }
+  .change-todo-image-while-hover {
+    background-position: 20px 35px;
+  }
+}
+
+@media(max-width: 375px){
+  .summary-tasks-top-container {
+    gap: 5px;
+  }
+  .summary-deadline-container {
+    width: 300px;
+    gap: 10px;
+    .deadline-title {
+      font-size: 16px;
+    }
+    .deadline-show-prio-container {
+      gap: 5px;
+    }
+  }
+  .deadline-date-container {
+    .mobile-date-font {
+      font-size: 18px;
+    }
+  }
+  .summary-tasks-bottom-container {
+    gap: 5px;
+  }
+}

@@ -1,18 +1,19 @@
 <app-sitebar></app-sitebar>
 <app-kanbanprojecttoolheader></app-kanbanprojecttoolheader>
+<app-groundbar></app-groundbar>
 
 <div class="content-container">
   <div class="summary-container">
     <div class="summary-headline">
       <h1>Summary</h1>
-      <div class="vertikal-line bg-color-blue"></div>
+      <div class="vertikal-line bg-color-blue vertikal-line-d-none"></div>
       <span>Everything in a nutshell!</span>
     </div>
     <div class="summary-task-container">
       <div class="summary-tasks-left-container">
         <div class="summary-tasks-top-container">
           <div class="quadrat-task-container" routerLink="/board">
-            <span class="font-size-48 font-weight-bold">{{
+            <span class="font-size-48 font-weight-bold font-size-mobile">{{
               tasks.length
             }}</span>
             <span class="font-size-20 text-align-center"
@@ -21,7 +22,7 @@
             >
           </div>
           <div class="quadrat-task-container" routerLink="/board">
-            <span class="font-size-48 font-weight-bold">{{
+            <span class="font-size-48 font-weight-bold font-size-mobile">{{
               inProgressTasks.length
             }}</span>
             <span class="font-size-20 text-align-center"
@@ -30,7 +31,7 @@
             >
           </div>
           <div class="quadrat-task-container" routerLink="/board">
-            <span class="font-size-48 font-weight-bold">{{
+            <span class="font-size-48 font-weight-bold font-size-mobile">{{
               awaitingFeedbackTasks.length
             }}</span>
             <span class="font-size-20 text-align-center"
@@ -69,7 +70,7 @@
           </div>
           <div class="vertikal-line bg-color-grey height-100 ml-mr-24"></div>
           <div class="deadline-date-container">
-            <span class="font-size-20 font-weight-bold">{{
+            <span class="font-size-20 font-weight-bold mobile-date-font">{{
               formatDate(nextDeadlineTask?.deadline)
             }}</span>
             <span>Upcoming Deadline</span>
@@ -78,7 +79,7 @@
         <div class="summary-tasks-bottom-container">
           <div class="image-task-container change-todo-image-while-hover">
             <div class="flex-container mr-64" routerLink="/board">
-              <span class="font-size-48 font-weight-bold">{{
+              <span class="font-size-48 font-weight-bold font-size-mobile">{{
                 todoTasks.length
               }}</span>
               <span class="font-size-20 text-align-center">To-do</span>
@@ -86,7 +87,7 @@
           </div>
           <div class="image-task-container change-done-image-while-hover">
             <div class="flex-container mr-64" routerLink="/board">
-              <span class="font-size-48 font-weight-bold">{{
+              <span class="font-size-48 font-weight-bold font-size-mobile">{{
                 doneTasks.length
               }}</span>
               <span class="font-size-20 text-align-center">Done</span>
@@ -94,7 +95,7 @@
           </div>
         </div>
       </div>
-      <div class="mr-128">
+      <div class="mr-128 mr-mobile d-none-mobile">
         <span class="font-size-48" id="greeting-time"></span>
         <h2 class="font-size-64 greet-name mt-16" id="greet-user"></h2>
       </div>

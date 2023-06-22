@@ -56,3 +56,15 @@
   border-radius: 50%;
   padding: 3px;
 }
+
+.kanban-join-logo {
+  height: 50px;
+  padding-left: 50px;
+  display: none;
+}
+
+@media(max-width: 475px){
+  .kanban-header-container {
+    height: 75px;
+  }
+}

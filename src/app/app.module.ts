@@ -25,6 +25,7 @@ import { AddcontactpopupComponent } from './components/addcontactpopup/addcontac
 import { EditcontactpopupComponent } from './components/editcontactpopup/editcontactpopup.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { HelpComponent } from './components/help/help.component';
+import { GroundbarComponent } from './components/groundbar/groundbar.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { HelpComponent } from './components/help/help.component';
     AddcontactpopupComponent,
     EditcontactpopupComponent,
     HelpComponent,
+    GroundbarComponent,
   ],
   imports: [
     BrowserModule,

@@ -60,6 +60,10 @@ body {
   display: none !important;
 }
 
+.groundbar {
+  display: none !important;
+}
+
 .mt-100 {
   margin-top: 100px;
 }
@@ -395,4 +399,181 @@ a {
   top: 30px;
   height: 20px;
   cursor: pointer;
+}
+
+@media(max-width: 1315px){
+  .summary-container {
+    padding-left: 50px !important;
+  }
+  .board-container {
+    padding-left: 50px !important;
+    padding-right: 50px !important;
+  }
+  .add-task-container {
+    padding-left: 50px !important;
+    padding-right: 50px !important;
+  }
+  .legal-notice-container-main {
+    padding-left: 50px !important;
+    padding-right: 50px !important;
+  }
+  .help-container {
+    padding-left: 50px !important;
+    padding-right: 50px !important;
+  }
+}
+
+@media(max-width: 1000px){
+  .mat-typography h1 {
+    line-height: 50px !important;
+  }
+  .login-register-fmp-container {
+    width: 500px !important;
+    input {
+      width: 300px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 0;
+    }
+  }
+  .form-container {
+    align-items: center;
+  }
+  h1 {
+    font-size: 60px !important;
+  }
+  .width-850 {
+    width: 500px !important;
+  }
+  .sitebar-d-none {
+    display: none !important;
+  }
+  .content-container {
+    margin-left: 0 !important;
+  }
+  .kanban-header-container {
+    left: 0 !important;
+  }
+  .headline {
+    padding-left: 50px !important;
+  }
+  .groundbar {
+    display: flex !important;
+  }
+  .kanban-join-logo {
+    display: block !important;
+  }
+  .summary-headline {
+    justify-content: center;
+  }
+}
+
+@media(max-width: 680px){
+  .kanban-header-profile-container {
+    margin-right: 10px !important;
+  }
+  .kanban-join-logo {
+    padding-left: 10px !important;
+  }
+  .summary-container {
+    padding-top: 25px !important;
+  }
+  .summary-headline {
+    gap: 10px;
+    flex-direction: column;
+    div {
+      display: none;
+    }
+  }
+  .login-register-fmp-container {
+    h1 {
+      margin-top: 0 !important;
+    }
+    input {
+      height: 40px;
+      font-size: 18px;
+      &::placeholder {
+        font-size: 18px;
+      }
+    }
+  }
+  .blue-line {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .form-container {
+    margin-top: 0 !important;
+  }
+  .form-input-label {
+    img {
+      top: 20px;
+    }
+  }
+}
+
+@media(max-width: 545px){
+  .login-register-fmp-container {
+    width: 400px !important;
+  }
+  h1 {
+    font-size: 48px !important;
+  }
+}
+
+@media(max-width: 475px){
+  .groundbar {
+    img {
+      height: 25px !important;
+    }
+    span {
+      font-size: 16px !important;
+    }
+  }
+  .content-container {
+    margin-top: 75px !important;
+  }
+  .summary-headline {
+    h1 {
+      margin-bottom: 0;
+    }
+  }
+  .summary-container {
+    padding-top: 15px !important;
+  }
+}
+
+@media(max-width: 420px){
+  .login-register-fmp-container {
+    width: 350px !important;
+  }
+  .login-register-fmp-container {
+    input {
+      width: 250px !important;
+      height: 40px;
+      font-size: 16px;
+      &::placeholder {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media(max-width: 375px){
+  .login-register-fmp-container {
+    width: 300px !important;
+  }
+  .blue-arrow-left-image {
+    top: 15px;
+    left: 15px;
+  }
+  h1 {
+    font-size: 40px !important;
+  }
+  .groundbar {
+    padding: 10px !important;
+    span {
+      font-size: 14px !important;
+    }
+  }
 }

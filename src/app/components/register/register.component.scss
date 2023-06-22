@@ -33,3 +33,40 @@
   border: 1px solid #D1D1D1;
 }
 }
+
+@media(max-width: 1000px){
+  .register-input {
+    width: 300px !important;
+  }
+  .user-sign-up-button {
+    font-size: 19px !important;
+    width: 140px !important;
+  }
+}
+
+@media(max-width: 680px){
+  .register-input {
+    height: 40px;
+    font-size: 18px;
+    &::placeholder {
+      font-size: 18px;
+    }
+  }
+  .user-sign-up-button {
+    width: 200px !important;
+  }
+}
+
+@media(max-width: 420px){
+  .register-input {
+    height: 40px;
+    font-size: 16px;
+    width: 250px !important;
+    &::placeholder {
+      font-size: 16px;
+    }
+  }
+  .user-sign-up-button {
+    width: 150px !important;
+  }
+}
