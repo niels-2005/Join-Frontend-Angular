@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HostListener } from '@angular/core';
+
 
 @Component({
   selector: 'app-kanbanprojecttoolheader',
   templateUrl: './kanbanprojecttoolheader.component.html',
   styleUrls: ['./kanbanprojecttoolheader.component.scss']
 })
-export class KanbanprojecttoolheaderComponent {
+export class KanbanprojecttoolheaderComponent implements OnInit {
 
   constructor(private router: Router) {}
 
@@ -32,7 +34,22 @@ export class KanbanprojecttoolheaderComponent {
 
   toggleLogout(){
     document.getElementById('logout-span')?.classList.toggle('d-none');
+    document.getElementById('legal-notice-mobile')?.classList.toggle('d-none');
   }
 
+  isViewSmallEnough: boolean = false
+
+  ngOnInit() {
+    this.checkScreenSize();
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.checkScreenSize();
+  }
+
+  checkScreenSize() {
+    this.isViewSmallEnough = window.innerWidth < 1001;
+  }
 
 }

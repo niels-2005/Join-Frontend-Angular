@@ -479,6 +479,12 @@ a {
   .summary-container {
     padding-top: 25px !important;
   }
+  .add-task-container {
+    padding-top: 25px !important;
+    h1 {
+      margin-bottom: 0 !important;
+    }
+  }
   .summary-headline {
     gap: 10px;
     flex-direction: column;

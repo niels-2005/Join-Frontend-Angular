@@ -1,12 +1,13 @@
 <app-sitebar></app-sitebar>
 <app-kanbanprojecttoolheader></app-kanbanprojecttoolheader>
+<app-groundbar></app-groundbar>
 
 <div class="content-container">
   <div class="add-task-container">
     <h1>Add Task</h1>
     <form class="add-task-content-container" [formGroup]="taskForm">
       <div class="add-task-content-left">
-        <span class="span-titles">Title</span>
+        <span class="span-titles padding-0-mobile">Title</span>
         <input
           formControlName="title"
           type="text"
@@ -14,7 +15,7 @@
           class="input-style"
           required
         />
-        <span class="span-titles">Description</span>
+        <span class="span-titles padding-0-mobile">Description</span>
         <textarea
           cols="30"
           rows="10"
@@ -22,7 +23,7 @@
           formControlName="description"
           required
         ></textarea>
-        <span class="span-titles">Category</span>
+        <span class="span-titles padding-0-mobile">Category</span>
         <div class="input-color-container">
           <input
             type="text"
@@ -33,7 +34,7 @@
           />
           <input type="color" class="color-picker" />
         </div>
-        <span class="span-titles">Assigned to</span>
+        <span class="span-titles padding-0-mobile">Assigned to</span>
         <input
           type="text"
           placeholder="Enter contacts to assign"
@@ -105,13 +106,13 @@
         <div class="add-task-button-container">
           <button
             type="button"
-            class="button-style-white-bg cancel-button-style transition-ease-in-out"
+            class="button-style-white-bg cancel-button-style transition-ease-in-out mobile-width-clear-button"
             (click)="clearTaskField()"
           >
             Clear
           </button>
           <button
-            class="button-style-dark-bg create-task-button-style transition-ease-in-out"
+            class="button-style-dark-bg create-task-button-style transition-ease-in-out mobile-width-create-task-button"
           >
             Create Task
           </button>
