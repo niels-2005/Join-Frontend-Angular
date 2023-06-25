@@ -26,6 +26,7 @@ import { EditcontactpopupComponent } from './components/editcontactpopup/editcon
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { HelpComponent } from './components/help/help.component';
 import { GroundbarComponent } from './components/groundbar/groundbar.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,7 @@ import { GroundbarComponent } from './components/groundbar/groundbar.component';
     FormsModule,
     MatAutocompleteModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

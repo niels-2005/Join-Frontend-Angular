@@ -16,7 +16,11 @@
       </div>
       <div class="board-headline-right-container">
         <div class="board-input-container">
-          <input type="text" placeholder="Find Task" />
+          <input
+            type="text"
+            placeholder="Find Task"
+            [(ngModel)]="filterValue"
+          />
           <div class="vertikal-line input-vertikal-line-pos"></div>
           <img src="/assets/img/search-icon.png" alt="Search Icon" />
         </div>
@@ -40,7 +44,7 @@
         >
           <div
             class="each-task-styling-container"
-            *ngFor="let task of todo"
+            *ngFor="let task of getFilteredTasks(todo)"
             cdkDrag
             [cdkDragData]="task"
           >
@@ -87,7 +91,7 @@
         >
           <div
             class="each-task-styling-container"
-            *ngFor="let task of inProgress"
+            *ngFor="let task of getFilteredTasks(inProgress)"
             cdkDrag
             [cdkDragData]="task"
           >
@@ -134,7 +138,7 @@
         >
           <div
             class="each-task-styling-container"
-            *ngFor="let task of awaitingFeedback"
+            *ngFor="let task of getFilteredTasks(awaitingFeedback)"
             cdkDrag
             [cdkDragData]="task"
           >
@@ -181,7 +185,7 @@
         >
           <div
             class="each-task-styling-container"
-            *ngFor="let task of done"
+            *ngFor="let task of getFilteredTasks(done)"
             cdkDrag
             [cdkDragData]="task"
           >

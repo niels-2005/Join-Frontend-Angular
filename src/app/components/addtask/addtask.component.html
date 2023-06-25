@@ -15,6 +15,7 @@
           class="input-style"
           required
         />
+        <span id="title-error" class="error-message"></span>
         <span class="span-titles padding-0-mobile">Description</span>
         <textarea
           cols="30"
@@ -23,25 +24,87 @@
           formControlName="description"
           required
         ></textarea>
+        <span id="description-error" class="error-message"></span>
         <span class="span-titles padding-0-mobile">Category</span>
         <div class="input-color-container">
-          <input
-            type="text"
-            placeholder="Enter task category"
-            class="input-style"
-            formControlName="category"
-            required
-          />
-          <input type="color" class="color-picker" />
+          <div style="position: relative">
+            <input
+              type="text"
+              placeholder="Enter a Category"
+              formControlName="category"
+              required
+              class="input-style"
+            />
+            <span
+              class="input-color-indicator"
+              [style.backgroundColor]="selectedColor"
+            ></span>
+          </div>
+          <span id="category-error" class="error-message"></span>
+          <div class="category-color-container">
+            <span
+              class="category-color"
+              style="background-color: #8aa4ff"
+              (click)="setColor('#8aa4ff')"
+            ></span>
+            <span
+              class="category-color"
+              style="background-color: #ff0000"
+              (click)="setColor('#ff0000')"
+            ></span>
+            <span
+              class="category-color"
+              style="background-color: #2ad300"
+              (click)="setColor('#2ad300')"
+            ></span>
+            <span
+              class="category-color"
+              style="background-color: #ff8a00"
+              (click)="setColor('#ff8a00')"
+            ></span>
+            <span
+              class="category-color"
+              style="background-color: #e200be"
+              (click)="setColor('#e200be')"
+            ></span>
+            <span
+              class="category-color"
+              style="background-color: #0038ff"
+              (click)="setColor('#0038ff')"
+            ></span>
+          </div>
         </div>
         <span class="span-titles padding-0-mobile">Assigned to</span>
-        <input
-          type="text"
-          placeholder="Enter contacts to assign"
-          class="input-style"
-          formControlName="assignedTo"
-          required
-        />
+        <div
+          class="assigned-to-container"
+          (click)="showContacts = !showContacts"
+        >
+          <div class="select-contacts-to-assign">
+            <span>Select contacts to assign</span>
+            <img src="/assets/img/arrow-down.png" alt="" />
+          </div>
+          <div
+            *ngIf="showContacts"
+            class="contact-dropdown"
+            (click)="$event.stopPropagation()"
+          >
+            <div
+              *ngFor="let contact of contacts$ | async"
+              class="dropdown-contact"
+            >
+              <label class="contact-item" (click)="toggleContact(contact)">
+                <span>{{ contact.name }}</span>
+                <input
+                  type="checkbox"
+                  class="input-checkbox"
+                  [checked]="contact.checked"
+                  (change)="toggleContact(contact)"
+                />
+              </label>
+            </div>
+          </div>
+        </div>
+        <span id="assigned-to-error" class="error-message"></span>
       </div>
       <div class="vertikal-line"></div>
       <div class="add-task-content-right">
@@ -52,6 +115,7 @@
           formControlName="dueDate"
           required
         />
+        <span id="date-error" class="error-message"></span>
         <span class="span-titles">Prio</span>
         <div class="prio-container" required>
           <div
@@ -64,7 +128,8 @@
                 'prio-low',
                 'bg-urgent-while-clicked',
                 'bg-medium-while-clicked',
-                'bg-low-while-clicked'
+                'bg-low-while-clicked',
+                'U'
               )
             "
           >
@@ -80,7 +145,8 @@
                 'prio-low',
                 'bg-medium-while-clicked',
                 'bg-urgent-while-clicked',
-                'bg-low-while-clicked'
+                'bg-low-while-clicked',
+                'M'
               )
             "
           >
@@ -96,13 +162,15 @@
                 'prio-medium',
                 'bg-low-while-clicked',
                 'bg-urgent-while-clicked',
-                'bg-medium-while-clicked'
+                'bg-medium-while-clicked',
+                'L'
               )
             "
           >
             <span>Low</span>
           </div>
         </div>
+        <span id="priority-error" class="error-message"></span>
         <div class="add-task-button-container">
           <button
             type="button"
@@ -113,6 +181,7 @@
           </button>
           <button
             class="button-style-dark-bg create-task-button-style transition-ease-in-out mobile-width-create-task-button"
+            (click)="addTask()"
           >
             Create Task
           </button>

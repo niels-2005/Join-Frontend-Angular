@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { ContactserviceService, Contact } from 'src/app/services/contactservice.service';
+import { map, tap, first } from 'rxjs/operators';
+import { DatePipe } from '@angular/common';
+import { TaskserviceService } from 'src/app/services/taskservice.service';
 
 @Component({
   selector: 'app-addtask',
@@ -11,13 +14,25 @@ export class AddtaskComponent implements OnInit {
 
   taskForm!: FormGroup;
   myControl = new FormControl();
-  allContacts: Contact[] = [];
 
+  selectedColor!: string;
 
-  constructor(private fb: FormBuilder, private contactService: ContactserviceService) {}
+  selectedPriority: string = "";
+
+  showContacts: boolean = false;
+
+  contacts$ = this.contactService.flatContacts$;
+
+setColor(color: string) {
+  this.selectedColor = color;
+  this.taskForm.patchValue({color: color});
+}
+
+  constructor(private fb: FormBuilder, private contactService: ContactserviceService, private datePipe: DatePipe, private taskService: TaskserviceService) {}
 
   async ngOnInit(): Promise<void> {
     this.initTaskForm();
+    await this.contactService.getContacts();
   }
 
 
@@ -26,7 +41,7 @@ export class AddtaskComponent implements OnInit {
       title: [''],
       description: [''],
       category: [''],
-      assignedTo: this.myControl,
+      assignedTo: [''],
       dueDate: [''],
       prio: [''],
       subtask: ['']
@@ -40,9 +55,101 @@ export class AddtaskComponent implements OnInit {
     document.getElementById('prio-low')?.classList.remove('bg-low-while-clicked');
   }
 
-  selectedPrio(id1: string, id2: string, id3: string, classnameToggle: string, removedClassOne: string, removedClassTwo: string) {
-    document.getElementById(id1)!.classList.toggle(classnameToggle);
-    document.getElementById(id2)!.classList.remove(removedClassOne);
-    document.getElementById(id3)!.classList.remove(removedClassTwo);
+  selectedPrio(id1: string, id2: string, id3: string, classnameToggle: string, removedClassOne: string, removedClassTwo: string, prio: string) {
+    setTimeout(() => {
+      document.getElementById(id1)!.classList.toggle(classnameToggle);
+      document.getElementById(id2)!.classList.remove(removedClassOne);
+      document.getElementById(id3)!.classList.remove(removedClassTwo);
+      this.selectedPriority = prio;
+      console.log(this.selectedPriority);
+    }, 100);
   }
+
+  addTask() {
+    const myHeaders = new Headers();
+    myHeaders.append("Authorization", "Token ce7ec33f2e134130748df55fc7dd7f27a6089b14");
+    myHeaders.append("Content-Type", "application/json");
+
+    const taskData = {
+      ...this.taskForm.value,
+      color: this.selectedColor,
+      assigned_to_names: this.taskForm.get('assignedTo')?.value,
+      deadline: this.datePipe.transform(this.taskForm.get('dueDate')?.value, 'yyyy-MM-dd'),
+      priority: this.selectedPriority,
+      status: "todo"
+    };
+
+    console.log(taskData);
+
+    const requestOptions: RequestInit = {
+      method: 'POST',
+      headers: myHeaders,
+      body: JSON.stringify(taskData)
+    };
+
+    fetch("http://127.0.0.1:8000/api/join/tasks/", requestOptions)
+      .then(response => {
+        if (response.ok) {
+          console.log('Task creation successful');
+        } else {
+          response.json().then(data => {
+            this.showAddTaskErrorMessage(data);
+          });
+        }
+      })
+      .catch(error => {
+        console.log('Error:', error);
+      });
+  }
+
+  showAddTaskErrorMessage(data: any) {
+    this.showError('title-error', data.title);
+    this.showError('description-error', data.description);
+    this.showError('category-error', data.category);
+    this.showError('assigned-to-error', data.assigned_to_names);
+    this.showError('date-error', data.deadline);
+    this.showError('priority-error', data.priority);
+    console.log('Contact creation failed:', data);
+  }
+
+  showError(elementId: string, error: string[] | undefined) {
+    const element = document.getElementById(elementId);
+    if (element && error) {
+      element.innerHTML = error[0];
+    }
+  }
+
+  get selectedContacts() {
+    let selectedContacts: string[] = [];
+    this.contacts$.pipe(
+      map(contacts => contacts.filter(contact => contact.checked)),
+      map(contacts => contacts.map(contact => contact.name))
+    ).subscribe(names => selectedContacts = names);
+    return selectedContacts;
+  }
+
+  toggleContact(contact: any) {
+    contact.checked = !contact.checked;
+    this.updateAssignedTo();
+  }
+
+
+  updateAssignedTo() {
+    this.contacts$.pipe(
+      first(),
+      tap(contacts => {
+        let selectedContacts = contacts.filter(contact => contact.checked);
+        let assignedToNames = selectedContacts.map(contact => contact.name).join(", ");
+        this.taskForm.get('assignedTo')?.setValue(assignedToNames);
+      })
+    ).subscribe();
+  }
+
+  getContactFormControl(contact: any): FormControl {
+    return new FormControl(contact.checked || false);
+  }
+
+
+
+
 }

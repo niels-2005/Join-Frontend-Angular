@@ -18,9 +18,10 @@ export class BoardComponent implements OnInit {
   awaitingFeedback: any[] = [];
   done: any[] = [];
 
+
   constructor(
     private popupService: AddtaskfieldserviceService,
-    private taskService: TaskserviceService
+    private taskService: TaskserviceService,
   ) {}
 
   ngOnInit(): void {
@@ -108,5 +109,15 @@ export class BoardComponent implements OnInit {
         .join("");
     });
     return initials.join(", ");
+  }
+
+  filterValue: string = '';
+
+  getFilteredTasks(taskArray: any[]): any[] {
+    if (this.filterValue) {
+      return taskArray.filter(task => task.title.toLowerCase().includes(this.filterValue.toLowerCase()));
+    } else {
+      return taskArray;
+    }
   }
 }

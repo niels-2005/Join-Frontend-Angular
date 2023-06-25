@@ -4,6 +4,7 @@
   padding-top: 50px;
   h1 {
     font-size: 64px;
+    margin-bottom: 30px;
     font-weight: bold;
   }
 }
@@ -46,7 +47,7 @@
 
 .span-titles {
   font-size: 22px;
-  margin-top: 35px;
+  margin-top: 15px;
   margin-bottom: 5px;
   padding-left: 5px;
 }
@@ -219,35 +220,84 @@
 }
 
 
-.assigned-to-container {
-  position: relative;
-  .autocomplete-options {
-    position: absolute;
-    background-color: white;
-    width: 100%;
-    height: 150px;
-    overflow-y: auto;
-    border: 1px solid #ccc;
-    z-index: 1;
-  }
-  input {
-    border: 1px solid #D1D1D1;
-    border-radius: 10px;
-    padding: 12px;
+.category-color-container {
+  display: flex;
+  padding-left: 20px;
+  gap: 15px;
+  span {
     cursor: pointer;
-    font-size: 18px;
-    color: black;
-    height: 50px;
-    width: 500px;
-    &::placeholder {
-      font-size: 18px;
-      color: black;
-      color: #d1d1d1;
-    }
-    &:focus {
-      outline: none;
-    }
   }
+}
+
+.category-color {
+  height: 20px;
+  width: 20px;
+  padding: 1px;
+  border: 1px solid white;
+  border-radius: 50%;
+}
+
+.input-color-indicator {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid white;
+  border-radius: 50%;
+}
+
+.assigned-to-container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: 1px solid #d1d1d1 !important;
+  border-radius: 12px;
+  padding: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  color: black;
+  height: 50px;
+  width: 500px;
+  img {
+    object-fit: contain;
+  }
+  span {
+    font-size: 22px;
+  }
+}
+
+.select-contacts-to-assign {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contact-dropdown {
+  display: flex;
+  flex-direction: column;
+  margin-left: -13px !important;
+  background-color: white;
+  width: 500px;
+  padding: 12px;
+    border-left: 1px solid #D1D1D1;
+    border-right: 1px solid #D1D1D1;
+    border-bottom: 1px solid #D1D1D1;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.contact-item {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  cursor: pointer;
+}
+
+.input-checkbox {
+  width: 15px !important;
+  height: 15px !important;
+  cursor: pointer;
 }
 
 @media(max-width: 1475px){

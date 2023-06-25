@@ -9,6 +9,7 @@ export type Contact = {
   color: string;
   email: string;
   phone: string;
+  checked?: boolean;
 }
 
 type GroupedContacts = { [key: string]: Contact[] };
@@ -17,8 +18,11 @@ type GroupedContacts = { [key: string]: Contact[] };
   providedIn: 'root'
 })
 export class ContactserviceService {
-  private contacts = new Subject<GroupedContacts>();
+  private contacts = new BehaviorSubject<GroupedContacts>({});
   contacts$ = this.contacts.asObservable();
+
+  private flatContacts = new BehaviorSubject<Contact[]>([]);
+  flatContacts$ = this.flatContacts.asObservable();
 
   private getHeaders(): Headers {
     const myHeaders = new Headers();
@@ -36,41 +40,45 @@ export class ContactserviceService {
   async getContacts(): Promise<void> {
     const requestOptions = this.getRequestOptions();
 
-    const response = await fetch("http://127.0.0.1:8000/api/join/contacts", requestOptions)
+    const response = await fetch("http://127.0.0.1:8000/api/join/contacts", requestOptions);
     const data = await response.json();
 
-    const contacts = data.map((contact: any): Contact => {
+    const contacts: Contact[] = data.map((contact: any): Contact => {
       return {
         id: contact.id,
         name: contact.name,
         email: contact.email,
         phone: contact.phone,
         initial: contact.name.charAt(0),
-        color: contact.color
+        color: contact.color,
       };
     });
 
     this.contacts.next(this.groupByInitial(contacts));
+    this.flatContacts.next(contacts);
   }
 
   groupByInitial(contacts: Contact[]): GroupedContacts {
     const groupedContacts: GroupedContacts = {};
 
     for (const contact of contacts) {
-      if (!groupedContacts[contact.initial]) {
-        groupedContacts[contact.initial] = [];
+      const initial = contact.initial.toUpperCase();
+
+      if (!groupedContacts[initial]) {
+        groupedContacts[initial] = [];
       }
 
-      groupedContacts[contact.initial].push(contact);
+      groupedContacts[initial].push(contact);
     }
 
     return groupedContacts;
   }
 
-  private selectedContactSubject = new BehaviorSubject<any>(null);
+  private selectedContactSubject = new BehaviorSubject<Contact | null>(null);
   selectedContact$ = this.selectedContactSubject.asObservable();
 
-  setSelectedContact(contact: any) {
+  setSelectedContact(contact: Contact | null): void {
     this.selectedContactSubject.next(contact);
   }
 }
+
