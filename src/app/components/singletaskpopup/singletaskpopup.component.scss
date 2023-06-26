@@ -1,0 +1,139 @@
+.position-absolute {
+  position: absolute;
+  top: 200px;
+  left: 800px;
+}
+
+.single-task-details {
+  position: relative;
+  background-color: white !important;
+  z-index: 1000;
+  width: 500px;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 30px;
+  border-radius: 30px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  h2 {
+    font-size: 50px;
+    font-weight: bolder;
+    line-height: 50px !important;
+  }
+}
+
+.category-style {
+  width: 150px;
+  border-radius: 8px;
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  padding: 8px;
+}
+
+.single-task-prio-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 115px;
+  padding: 6px;
+  border-radius: 8px;
+  span {
+    color: white;
+    font-size: 20px;
+  }
+}
+
+.bg-red {
+  background-color: #FF3D00;
+}
+
+.bg-yellow {
+  background-color: #FFA800;
+}
+
+.bg-green {
+  background-color: #7AE229;
+}
+
+.right-priority-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+}
+
+.task-titles-font-weight-bold {
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.assigned-to-container {
+  display: flex;
+  gap: 15px;
+}
+
+.task-description {
+  font-size: 20px;
+}
+
+.date-styling {
+  font-size: 20px;
+}
+
+.assigned-to-content-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  span {
+    font-size: 20px;
+  }
+}
+
+.delete-edit-container {
+  width: 100px;
+  height: 50px;
+  display: flex;
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  cursor: pointer;
+}
+
+.delete-span {
+  width: 50px;
+  background-image: url('/assets/img/black-delete.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  border: 1px solid #2A3647;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  transition: 0.1s ease-in-out;
+  &:hover {
+  background-image: url('/assets/img/blue-delete.png') !important;
+  border: 1px solid #29ABE2;
+  }
+}
+
+.edit-span {
+  width: 50px;
+  background-color: #2A3647;
+  background-image: url('/assets/img/white-pencil.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  transition: 0.1s ease-in-out;
+  &:hover {
+    background-color: #29ABE2;
+  }
+}
+
+.cross-image-task {
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  height: 20px;
+  cursor: pointer;
+}

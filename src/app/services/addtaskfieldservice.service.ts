@@ -20,4 +20,16 @@ export class AddtaskfieldserviceService {
     document.getElementById('sitebar')?.classList.remove('give-opacity');
     document.getElementById('kanban-header')?.classList.remove('give-opacity');
   }
+
+  addOpacity(){
+    document.getElementById('board-container')?.classList.add('give-opacity');
+    document.getElementById('sitebar')?.classList.add('give-opacity');
+    document.getElementById('kanban-header')?.classList.add('give-opacity');
+  }
+
+  removeOpacity(){
+    document.getElementById('board-container')?.classList.remove('give-opacity');
+    document.getElementById('sitebar')?.classList.remove('give-opacity');
+    document.getElementById('kanban-header')?.classList.remove('give-opacity');
+  }
 }

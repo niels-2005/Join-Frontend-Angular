@@ -27,6 +27,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { HelpComponent } from './components/help/help.component';
 import { GroundbarComponent } from './components/groundbar/groundbar.component';
 import { DatePipe } from '@angular/common';
+import { SingletaskpopupComponent } from './components/singletaskpopup/singletaskpopup.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { DatePipe } from '@angular/common';
     EditcontactpopupComponent,
     HelpComponent,
     GroundbarComponent,
+    SingletaskpopupComponent,
   ],
   imports: [
     BrowserModule,

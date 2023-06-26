@@ -47,6 +47,7 @@
             *ngFor="let task of getFilteredTasks(todo)"
             cdkDrag
             [cdkDragData]="task"
+            (click)="onTaskClick(task)"
           >
             <div [style.background-color]="task.color" class="category-style">
               {{ task.category }}
@@ -94,6 +95,7 @@
             *ngFor="let task of getFilteredTasks(inProgress)"
             cdkDrag
             [cdkDragData]="task"
+            (click)="onTaskClick(task)"
           >
             <div [style.background-color]="task.color" class="category-style">
               {{ task.category }}
@@ -141,6 +143,7 @@
             *ngFor="let task of getFilteredTasks(awaitingFeedback)"
             cdkDrag
             [cdkDragData]="task"
+            (click)="onTaskClick(task)"
           >
             <div [style.background-color]="task.color" class="category-style">
               {{ task.category }}
@@ -188,6 +191,7 @@
             *ngFor="let task of getFilteredTasks(done)"
             cdkDrag
             [cdkDragData]="task"
+            (click)="onTaskClick(task)"
           >
             <div [style.background-color]="task.color" class="category-style">
               {{ task.category }}
@@ -223,6 +227,8 @@
     </div>
   </div>
 </div>
+
+<app-singletaskpopup [selectedTask]="selectedTask"></app-singletaskpopup>
 
 <app-addtaskboardbutton
   id="add-task-field"

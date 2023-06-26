@@ -6,11 +6,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 })
 export class TaskserviceService {
 
-
-
   constructor() { }
-
-
 
   getTasks(): Observable<any> {
     const myHeaders = new Headers();

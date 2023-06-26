@@ -18,6 +18,15 @@ export class BoardComponent implements OnInit {
   awaitingFeedback: any[] = [];
   done: any[] = [];
 
+  selectedTask: any;
+
+  onTaskClick(task: any) {
+    this.popupService.addOpacity();
+    this.selectedTask = null;
+    setTimeout(() => {
+      this.selectedTask = task;
+    }, 0);
+  }
 
   constructor(
     private popupService: AddtaskfieldserviceService,
