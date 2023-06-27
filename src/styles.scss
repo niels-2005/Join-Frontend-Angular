@@ -72,6 +72,10 @@ body {
   margin-top: 50px !important;
 }
 
+.mt-25 {
+  margin-top: 25px !important;
+}
+
 .mt-16 {
   margin-top: 16px !important;
 }
@@ -91,6 +95,10 @@ body {
 
 .mr-64 {
   margin-right: 64px;
+}
+
+.mb-56 {
+  margin-bottom: 56px !important;
 }
 
 .flex-container {
@@ -398,6 +406,117 @@ a {
   right: 50px;
   top: 30px;
   height: 20px;
+  cursor: pointer;
+}
+
+// Priority Styling for add Task and edit task
+.prio-content-style {
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  width: 125px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+  }
+ span {
+  font-size: 22px;
+  margin-right: 20px;
+ }
+}
+
+.bg-urgent {
+  background-image: url('/assets/img/urgent.icon2.png');
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-color: white;
+}
+
+.bg-medium{
+  background-image: url('/assets/img/urgent-icon3.png');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-color: white;
+}
+
+.bg-low {
+  background-image: url('/assets/img/urgent-icon4.png');
+  background-repeat: no-repeat;
+  background-position: right 25px center;
+  background-color: white;
+}
+
+.bg-urgent-while-clicked {
+  background-image: url('/assets/img/urgent-prio-white.png') !important;
+  background-color: #ff3d00 !important;
+  color: white;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+.bg-medium-while-clicked {
+  background-image: url('/assets/img/medium-prio-white.png') !important;
+  background-color: #ffa800 !important;
+  color: white;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+.bg-low-while-clicked {
+  background-image: url('/assets/img/low-prio-white.png') !important;
+  background-color: rgb(122,226,41) !important;
+  color: white;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+
+//  assign contacts dropdown styling for add task and edit task
+
+.assigned-to-container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: 1px solid #d1d1d1 !important;
+  border-radius: 12px;
+  padding: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  color: black;
+  height: 50px;
+  width: 500px;
+  img {
+    object-fit: contain;
+  }
+  span {
+    font-size: 22px;
+  }
+}
+
+.select-contacts-to-assign {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contact-dropdown {
+  display: flex;
+  flex-direction: column;
+  margin-left: -13px !important;
+  background-color: white;
+  width: 500px;
+  padding: 12px;
+    border-left: 1px solid #D1D1D1;
+    border-right: 1px solid #D1D1D1;
+    border-bottom: 1px solid #D1D1D1;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.contact-item {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
   cursor: pointer;
 }
 

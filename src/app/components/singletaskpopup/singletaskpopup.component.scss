@@ -69,9 +69,29 @@
   font-size: 22px;
 }
 
-.assigned-to-container {
+.assigned-to-containerrr {
   display: flex;
   gap: 15px;
+}
+
+.assigned-to-containerrrr {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  border: 1px solid #d1d1d1 !important;
+  border-radius: 12px;
+  padding: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  color: black;
+  width: 400px;
+  img {
+    object-fit: contain;
+  }
+  span {
+    font-size: 20px;
+  }
 }
 
 .task-description {
@@ -137,3 +157,93 @@
   height: 20px;
   cursor: pointer;
 }
+
+.edit-task-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  min-height: 600px;
+  min-width: 500px;
+  padding: 30px;
+  border-radius: 30px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  textarea {
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    padding: 12px;
+    cursor: pointer;
+    width: 400px;
+    resize: none;
+    color: black;
+    font-size: 18px;
+    min-height: 100px;
+    &::placeholder {
+      font-size: 18px;
+      color: #d1d1d1;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.span-titles {
+  font-size: 22px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.input-styling {
+  border: 1px solid #D1D1D1;
+  border-radius: 10px;
+  padding: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  color: black;
+  height: 40px;
+  width: 400px;
+  &::placeholder {
+    font-size: 18px;
+    color: #d1d1d1;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+.prio-container {
+  display: flex;
+  max-width: 400px;
+  justify-content: space-between;
+}
+
+.prio-content-styling {
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  width: 125px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+  }
+ span {
+  font-size: 18px;
+  margin-right: 20px;
+ }
+}
+
+.contact-dropdown-edit {
+  display: flex;
+  flex-direction: column;
+  margin-left: -13px !important;
+  background-color: white;
+  width: 400px;
+  padding: 10px;
+    border-left: 1px solid #D1D1D1;
+    border-right: 1px solid #D1D1D1;
+  }
