@@ -3,6 +3,8 @@ import { AddtaskfieldserviceService } from 'src/app/services/addtaskfieldservice
 import { ContactserviceService } from 'src/app/services/contactservice.service';
 import { map, tap, first } from 'rxjs/operators';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { Location } from '@angular/common';
+import { TaskserviceService } from 'src/app/services/taskservice.service';
 
 @Component({
   selector: 'app-singletaskpopup',
@@ -21,7 +23,7 @@ export class SingletaskpopupComponent implements OnInit {
 
   contacts$ = this.contactService.flatContacts$;
 
-  constructor(private popupService: AddtaskfieldserviceService, private contactService: ContactserviceService, private fb: FormBuilder) {}
+  constructor(private popupService: AddtaskfieldserviceService, private contactService: ContactserviceService, private fb: FormBuilder, private location: Location, private taskService: TaskserviceService) {}
 
   async ngOnInit(): Promise<void> {
     this.initTaskForm();
@@ -87,5 +89,93 @@ export class SingletaskpopupComponent implements OnInit {
     document.getElementById(id1)?.classList.add('d-none');
     document.getElementById(id2)?.classList.remove('d-none');
   }
+
+  async editTask(){
+    const myHeaders = new Headers();
+    myHeaders.append("Authorization", "Token ce7ec33f2e134130748df55fc7dd7f27a6089b14");
+    myHeaders.append("Content-Type", "application/json");
+
+    const task = this.taskForm.value;
+
+    let priority = this.selectedTask.priority;
+
+    if (this.selectedPriority && this.selectedPriority !== this.selectedTask.priority) {
+      priority = this.selectedPriority;
+    }
+
+    const raw = JSON.stringify({
+      "id": this.selectedTask.id,
+      "title": this.selectedTask.title,
+      "description": this.selectedTask.description,
+      "assigned_to_names": task.assignedTo,
+      "deadline": this.selectedTask.deadline,
+      "priority": priority
+    });
+
+    const requestOptions: RequestInit = {
+      method: 'PUT',
+      headers: myHeaders,
+      body: raw,
+    };
+
+    const url = `http://127.0.0.1:8000/api/join/tasks/${this.selectedTask.id}/`;
+
+    try {
+      const resp = await fetch(url, requestOptions);
+      const json = await resp.json();
+
+      if (resp.ok) {
+        console.log('Task update successful');
+        window.location.reload();
+      } else {
+        console.log('Task update failed:', json);
+        this.showUpdateErrorMessage(json);
+      }
+    } catch (error) {
+      console.log('Error during task update:', error);
+    }
+  }
+
+  showUpdateErrorMessage(json: any) {
+    this.showError('title-error', json.title);
+    this.showError('description-error', json.description);
+    this.showError('assigned_to_names-error', json.assigned_to_names);
+    this.showError('deadline-error', json.deadline);
+    this.showError('priority-error', json.priority);
+  }
+
+  showError(elementId: string, error: string[] | undefined) {
+    const element = document.getElementById(elementId);
+    if (element && error) {
+      element.innerHTML = error[0];
+    }
+  }
+
+  async deleteTask() {
+    const myHeaders = new Headers();
+    myHeaders.append("Authorization", "Token ce7ec33f2e134130748df55fc7dd7f27a6089b14");
+    myHeaders.append("Content-Type", "application/json");
+
+    const requestOptions: RequestInit = {
+        method: 'DELETE',
+        headers: myHeaders
+    };
+
+    const url = `http://127.0.0.1:8000/api/join/tasks/${this.selectedTask.id}/`;
+
+    try {
+        const resp = await fetch(url, requestOptions);
+
+        if (resp.ok) {
+            console.log('Contact deletion successful');
+            window.location.reload();
+        } else {
+            const json = await resp.json();
+            console.log('Contact deletion failed:', json);
+        }
+    } catch (error) {
+        console.log('Error during contact deletion:', error);
+    }
+}
 
 }

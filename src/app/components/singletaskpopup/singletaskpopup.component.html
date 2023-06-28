@@ -50,7 +50,7 @@
       (click)="closePopup()"
     />
     <div class="delete-edit-container">
-      <span class="delete-span"></span>
+      <span class="delete-span" (click)="deleteTask()"></span>
       <span
         class="edit-span"
         (click)="
@@ -68,15 +68,20 @@
       (click)="closePopup()"
     />
     <span class="span-titles mt-25">Title</span>
-    <input type="text" class="input-styling" />
+    <input type="text" class="input-styling" [(ngModel)]="selectedTask.title" />
     <span class="span-titles">Description</span>
-    <textarea></textarea>
+    <textarea [(ngModel)]="selectedTask.description"></textarea>
     <span class="span-titles">Due date</span>
-    <input type="date" class="input-styling" />
+    <input
+      type="date"
+      class="input-styling"
+      [(ngModel)]="selectedTask.deadline"
+    />
     <span class="span-titles">Prio</span>
     <div class="prio-container" required>
       <div
         class="prio-content-styling bg-urgent transition-ease-in-out"
+        [ngClass]="{ 'bg-urgent-while-clicked': selectedTask.priority === 'U' }"
         id="prio-urgent"
         (click)="
           selectedPrio(
@@ -94,6 +99,7 @@
       </div>
       <div
         class="prio-content-styling bg-medium transition-ease-in-out"
+        [ngClass]="{ 'bg-medium-while-clicked': selectedTask.priority === 'M' }"
         id="prio-medium"
         (click)="
           selectedPrio(
@@ -111,6 +117,7 @@
       </div>
       <div
         class="prio-content-styling bg-low transition-ease-in-out"
+        [ngClass]="{ 'bg-low-while-clicked': selectedTask.priority === 'L' }"
         id="prio-low"
         (click)="
           selectedPrio(
@@ -154,5 +161,8 @@
         </div>
       </div>
     </div>
+    <span class="ok-span" (click)="editTask()"
+      >Ok <img src="/assets/img/done.png" alt="Checked Icon"
+    /></span>
   </div>
 </div>

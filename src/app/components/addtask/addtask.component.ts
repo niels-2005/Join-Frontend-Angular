@@ -4,6 +4,7 @@ import { ContactserviceService, Contact } from 'src/app/services/contactservice.
 import { map, tap, first } from 'rxjs/operators';
 import { DatePipe } from '@angular/common';
 import { TaskserviceService } from 'src/app/services/taskservice.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-addtask',
@@ -28,7 +29,7 @@ setColor(color: string) {
   this.taskForm.patchValue({color: color});
 }
 
-  constructor(private fb: FormBuilder, private contactService: ContactserviceService, private datePipe: DatePipe, private taskService: TaskserviceService) {}
+  constructor(private fb: FormBuilder, private contactService: ContactserviceService, private datePipe: DatePipe, private taskService: TaskserviceService, private router: Router) {}
 
   async ngOnInit(): Promise<void> {
     this.initTaskForm();
@@ -91,6 +92,7 @@ setColor(color: string) {
       .then(response => {
         if (response.ok) {
           console.log('Task creation successful');
+          this.showTaskAddedToBoard();
         } else {
           response.json().then(data => {
             this.showAddTaskErrorMessage(data);
@@ -100,6 +102,14 @@ setColor(color: string) {
       .catch(error => {
         console.log('Error:', error);
       });
+  }
+
+  showTaskAddedToBoard(){
+    document.getElementById('task-added-to-board')?.classList.remove('d-none');
+    setTimeout(() => {
+      this.router.navigate(['/board']);
+      document.getElementById('task-added-to-board')?.classList.add('d-none');
+    }, 1500);
   }
 
   showAddTaskErrorMessage(data: any) {
