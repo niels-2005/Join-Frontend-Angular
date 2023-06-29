@@ -36,10 +36,13 @@
     <div class="assigned-to-content-container">
       <span class="task-titles-font-weight-bold">Assigned to:</span>
       <div
-        *ngFor="let name of selectedTask.assigned_to_names.split(', ')"
+        *ngFor="
+          let name of selectedTask.assigned_to_names.split(', ');
+          let i = index
+        "
         class="assigned-to-containerrr"
       >
-        <span>{{ getInitials(name) }}</span>
+        <span *ngIf="name">{{ i + 1 }}</span>
         <span>{{ name }}</span>
       </div>
     </div>

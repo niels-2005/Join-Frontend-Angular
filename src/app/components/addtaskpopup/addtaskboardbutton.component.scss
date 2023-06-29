@@ -4,7 +4,7 @@
   border-radius: 30px;
   padding: 50px;
   position: relative;
-  height: 90vh;
+  min-height: 90vh;
   width: 85vw;
   h1 {
 
@@ -172,3 +172,81 @@
   width: 2px;
   background-color: #D1D1D1;
 }
+
+.assigned-to-container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: 1px solid #d1d1d1 !important;
+  border-radius: 12px;
+  padding: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  color: black;
+  height: 50px;
+  width: 500px;
+  img {
+    object-fit: contain;
+  }
+  span {
+    font-size: 22px;
+  }
+}
+
+.assigned-to-container-popup {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: 1px solid #d1d1d1 !important;
+  border-radius: 12px;
+  padding: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  color: black;
+  height: 50px;
+  width: 400px;
+  img {
+    object-fit: contain;
+  }
+  span {
+    font-size: 22px;
+  }
+}
+
+
+.select-contacts-to-assign-popup {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contact-dropdown-popup {
+  display: flex;
+  flex-direction: column;
+  margin-left: -13px !important;
+  background-color: white;
+  width: 400px !important;
+  padding: 12px;
+    border-left: 1px solid #D1D1D1;
+    border-right: 1px solid #D1D1D1;
+    border-bottom: 1px solid #D1D1D1;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.task-added-to-board-popup {
+  display: flex;
+  gap: 20px;
+  padding: 20px 30px;
+  background-color: #2A3647;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  color: white;
+  border-radius: 15px;
+  span {
+    font-size: 22px;
+  }
+}
+
+

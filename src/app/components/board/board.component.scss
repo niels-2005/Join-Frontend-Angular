@@ -184,6 +184,27 @@ h2 {
   width: 100%;
 }
 
+.show-user-length-container {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #d1d1d1;
+  padding: 2px 8px;
+  border-radius: 8px;
+  img {
+    height: 20px;
+    margin-bottom: 2px;
+  }
+  span {
+    font-size: 22px;
+    color: white;
+  }
+}
+
 @media(max-width: 1515px){
   .board-container {
     padding-left: 25px !important;

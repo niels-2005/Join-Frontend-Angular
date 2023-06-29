@@ -43,24 +43,36 @@
         <div class="summary-deadline-container" routerLink="/board">
           <div class="deadline-left-container">
             <div class="deadline-show-prio-container">
-              <img
-                src="/assets/img/urgent.icon2.png"
-                alt="Priority Symbol"
-                class="priority-status-image"
+              <div
                 *ngIf="nextDeadlineTask?.priority === 'U'"
-              />
-              <img
-                src="/assets/img/urgent-icon3.png"
-                alt="Priority Symbol"
-                class="priority-status-image"
+                class="prio-image-container bg-urgent"
+              >
+                <img
+                  src="/assets/img/urgent-prio-white.png"
+                  alt="Priority Symbol"
+                  class="priority-status-image"
+                />
+              </div>
+              <div
                 *ngIf="nextDeadlineTask?.priority === 'M'"
-              />
-              <img
-                src="/assets/img/urgent-icon4.png"
-                alt="Priority Symbol"
-                class="priority-status-image"
+                class="prio-image-container bg-medium"
+              >
+                <img
+                  src="/assets/img/medium-prio-white.png"
+                  alt="Priority Symbol"
+                  class="priority-status-image-medium"
+                />
+              </div>
+              <div
                 *ngIf="nextDeadlineTask?.priority === 'L'"
-              />
+                class="prio-image-container bg-low"
+              >
+                <img
+                  src="/assets/img/low-prio-white.png"
+                  alt="Priority Symbol"
+                  class="priority-status-image-low"
+                />
+              </div>
               <div class="show-task-prio-container">
                 <span class="font-weight-bold font-size-40">1</span>
                 <span>{{ getPriorityText(nextDeadlineTask?.priority) }}</span>

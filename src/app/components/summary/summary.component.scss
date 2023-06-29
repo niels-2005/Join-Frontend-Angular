@@ -70,12 +70,6 @@
   gap: 10px;
 }
 
-.priority-status-image {
-  height: 30px;
-  object-fit: contain;
-  margin-right: 20px;
-}
-
 .summary-tasks-bottom-container {
   display: flex;
   justify-content: space-between;
@@ -139,8 +133,46 @@
 .deadline-show-prio-container {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 50px;
   justify-content: center;
+}
+
+.prio-image-container {
+  padding: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 75px;
+  width: 75px;
+}
+
+.priority-status-image {
+  height: 28px;
+  object-fit: contain;
+}
+
+.priority-status-image-medium {
+  height: 20px !important;
+  object-fit: contain;
+}
+
+.priority-status-image-low {
+  height: 28px !important;
+  object-fit: contain;
+  margin-top: 10px;
+}
+
+.bg-urgent {
+  background-color: #FF3D00;
+}
+
+.bg-medium {
+  background-color: #FFA800;
+}
+
+.bg-low {
+  background-color: #7AE229;
 }
 
 @media(max-width: 1500px){
