@@ -51,8 +51,16 @@ export class ContactsComponent {
     this.popupService.openTaskField(id1, id2);
   }
 
+
+
+
   onContactClick(contact: any) {
     this.selectedContact = contact;
+
+    if (window.innerWidth < 751) {
+      document.getElementById('single-contact-details')?.classList.remove('d-none');
+      document.getElementById('all-contact-details')?.classList.add('d-none');
+    }
   }
 
 }

@@ -5,6 +5,39 @@
   background-color: #D1D1D1;
 }
 
+.assigned-to-container-add-task {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: 1px solid #d1d1d1 !important;
+  border-radius: 12px;
+  padding: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  color: black;
+  min-height: 50px;
+  width: 500px;
+  img {
+    object-fit: contain;
+  }
+  span {
+    font-size: 22px;
+  }
+}
+
+.contact-dropdown-add-task {
+  display: flex;
+  flex-direction: column;
+  margin-left: -13px !important;
+  background-color: white;
+  width: 500px;
+  padding: 12px;
+    border-left: 1px solid #D1D1D1;
+    border-right: 1px solid #D1D1D1;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
 @media(max-width: 1475px){
   .selected-inputs-style {
     width: 400px;
@@ -15,9 +48,21 @@
   textarea {
     width: 400px !important;
   }
+  .assigned-to-container-add-task {
+    width: 400px;
+  }
+  .contact-dropdown-add-task {
+    width: 400px;
+  }
 }
 
 @media(max-width: 1250px){
+  .assigned-to-container-add-task {
+    width: 350px;
+  }
+  .contact-dropdown-add-task {
+    width: 350px;
+  }
   .selected-inputs-style {
     width: 350px;
   }
@@ -63,6 +108,12 @@
 }
 
 @media(max-width: 1080px){
+  .assigned-to-container-add-task {
+    width: 300px;
+  }
+  .contact-dropdown-add-task {
+    width: 300px;
+  }
   .selected-inputs-style {
     width: 300px;
   }
@@ -86,6 +137,15 @@
 }
 
 @media(max-width: 1000px){
+  .assigned-to-container-add-task {
+    width: 500px;
+    span {
+      font-size: 20px;
+    }
+  }
+  .contact-dropdown-add-task {
+    width: 500px;
+  }
   .mobile-width-clear-button {
     display: none !important;
   }
@@ -114,9 +174,6 @@
   }
   textarea {
     width: 500px !important;
-  }
-  .add-task-content-right {
-    margin-right: 20px !important;
   }
   .prio-container {
     justify-content: space-between;
@@ -153,9 +210,21 @@
     width: 400px !important;
     height: 100px !important;
   }
+  .assigned-to-container-add-task {
+    width: 400px !important;
+  }
+  .contact-dropdown-add-task {
+    width: 400px !important;
+  }
 }
 
 @media(max-width: 475px){
+  .assigned-to-container-add-task {
+    width: 300px !important;
+  }
+  .contact-dropdown-add-task {
+    width: 300px !important;
+  }
   .selected-inputs-style {
     width: 300px;
   }
@@ -182,12 +251,25 @@
 }
 
 @media(max-width: 390px){
+  .assigned-to-container-add-task {
+    width: 270px !important;
+    padding: 12px;
+    justify-content: center;
+    span {
+      font-size: 18px;
+    }
+  }
+  .contact-dropdown-add-task {
+    width: 270px !important;
+    padding: 0 !important;
+  }
+  .contact-item {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
   .add-task-container {
     padding-left: 5px !important;
     padding-right: 5px !important;
-  }
-  .add-task-content-right {
-    margin-right: 10px !important;
   }
   .selected-inputs-style {
     width: 270px;

@@ -234,6 +234,14 @@
 }
 
 @media(max-width: 475px){
+  .prio-image-container {
+    height: 50px;
+    width: 50px;
+    padding: 12px;
+  }
+  .priority-status-image {
+    height: 20px;
+  }
   .summary-task-container {
     margin-top: 15px;
   }
@@ -253,12 +261,11 @@
     }
   }
   .summary-deadline-container {
-    align-items: flex-start;
+    align-items: center;
     border-radius: 20px !important;
-    padding-top: 20px !important;
     width: 350px;
     height: 125px !important;
-    gap: 20px;
+    gap: 25px;
   }
   .vertikal-line {
     display: none;
@@ -283,13 +290,14 @@
   .change-todo-image-while-hover {
     background-position: 20px 25px;
   }
-  .deadline-date-container {
-    padding-top: 20px !important;
-  }
   .image-task-container {
     align-items: flex-start;
     padding-top: 20px !important;
     height: 100px !important;
+  }
+  .deadline-show-prio-container {
+    gap: 15px;
+    margin-bottom: 12px;
   }
 }
 
@@ -299,12 +307,13 @@
   }
   .summary-deadline-container {
     width: 300px;
-    gap: 10px;
+    gap: 20px;
     .deadline-title {
       font-size: 16px;
     }
     .deadline-show-prio-container {
-      gap: 5px;
+      gap: 15px;
+      margin-bottom: 15px;
     }
   }
   .deadline-date-container {

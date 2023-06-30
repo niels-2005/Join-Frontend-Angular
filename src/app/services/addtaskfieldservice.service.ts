@@ -12,6 +12,7 @@ export class AddtaskfieldserviceService {
     document.getElementById(id2)?.classList.add('give-opacity');
     document.getElementById('sitebar')?.classList.add('give-opacity');
     document.getElementById('kanban-header')?.classList.add('give-opacity');
+    document.getElementById('groundbar')?.classList.add('give-opacity');
   }
 
   closeTaskField(id1: string, id2: string) {
@@ -19,6 +20,7 @@ export class AddtaskfieldserviceService {
     document.getElementById(id2)?.classList.remove('give-opacity');
     document.getElementById('sitebar')?.classList.remove('give-opacity');
     document.getElementById('kanban-header')?.classList.remove('give-opacity');
+    document.getElementById('groundbar')?.classList.remove('give-opacity');
   }
 
   addOpacity(){
@@ -30,6 +32,7 @@ export class AddtaskfieldserviceService {
   removeOpacity(){
     document.getElementById('board-container')?.classList.remove('give-opacity');
     document.getElementById('sitebar')?.classList.remove('give-opacity');
+    document.getElementById('groundbar')?.classList.remove('give-opacity');
     document.getElementById('kanban-header')?.classList.remove('give-opacity');
   }
 }

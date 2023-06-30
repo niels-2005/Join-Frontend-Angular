@@ -33,7 +33,7 @@
       </div>
     </div>
     <div cdkDropListGroup class="task-container">
-      <div>
+      <div class="flexbox-board-container">
         <h2>To do</h2>
         <div
           id="cdk-drop-list-0"
@@ -86,7 +86,7 @@
         </div>
       </div>
 
-      <div>
+      <div class="flexbox-board-container">
         <h2>In progress</h2>
         <div
           id="cdk-drop-list-1"
@@ -108,9 +108,14 @@
             <h3>{{ task.title }}</h3>
             <span class="task-description">{{ task.description }}</span>
             <div class="workers-and-priority-container">
-              <span class="assigned-to-workers">
-                {{ getInitials(task.assigned_to_names) }}
-              </span>
+              <div class="show-user-length-container">
+                <span>{{
+                  task.assigned_to_names
+                    ? task.assigned_to_names.split(",").length
+                    : 0
+                }}</span>
+                <img src="/assets/img/contact-user.png" alt="User Image" />
+              </div>
               <img
                 *ngIf="task.priority === 'U'"
                 src="/assets/img/urgent.icon2.png"
@@ -134,7 +139,7 @@
         </div>
       </div>
 
-      <div>
+      <div class="flexbox-board-container">
         <h2>Awaiting Feedback</h2>
         <div
           id="cdk-drop-list-2"
@@ -156,9 +161,14 @@
             <h3>{{ task.title }}</h3>
             <span class="task-description">{{ task.description }}</span>
             <div class="workers-and-priority-container">
-              <span class="assigned-to-workers">
-                {{ getInitials(task.assigned_to_names) }}
-              </span>
+              <div class="show-user-length-container">
+                <span>{{
+                  task.assigned_to_names
+                    ? task.assigned_to_names.split(",").length
+                    : 0
+                }}</span>
+                <img src="/assets/img/contact-user.png" alt="User Image" />
+              </div>
               <img
                 *ngIf="task.priority === 'U'"
                 src="/assets/img/urgent.icon2.png"
@@ -182,7 +192,7 @@
         </div>
       </div>
 
-      <div>
+      <div class="flexbox-board-container">
         <h2>Done</h2>
         <div
           id="cdk-drop-list-3"
@@ -204,9 +214,14 @@
             <h3>{{ task.title }}</h3>
             <span class="task-description">{{ task.description }}</span>
             <div class="workers-and-priority-container">
-              <span class="assigned-to-workers">
-                {{ getInitials(task.assigned_to_names) }}
-              </span>
+              <div class="show-user-length-container">
+                <span>{{
+                  task.assigned_to_names
+                    ? task.assigned_to_names.split(",").length
+                    : 0
+                }}</span>
+                <img src="/assets/img/contact-user.png" alt="User Image" />
+              </div>
               <img
                 *ngIf="task.priority === 'U'"
                 src="/assets/img/urgent.icon2.png"

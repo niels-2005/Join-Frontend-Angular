@@ -76,7 +76,7 @@
         </div>
         <span class="span-titles padding-0-mobile">Assigned to</span>
         <div
-          class="assigned-to-container"
+          class="assigned-to-container-add-task"
           (click)="showContacts = !showContacts"
         >
           <div class="select-contacts-to-assign">
@@ -85,7 +85,7 @@
           </div>
           <div
             *ngIf="showContacts"
-            class="contact-dropdown"
+            class="contact-dropdown-add-task"
             (click)="$event.stopPropagation()"
           >
             <div
@@ -189,9 +189,4 @@
       </div>
     </form>
   </div>
-</div>
-
-<div class="task-added-to-board d-none" id="task-added-to-board">
-  <span>Task added to board</span>
-  <img src="/assets/img/board-icon.png" alt="" />
 </div>
