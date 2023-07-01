@@ -11,7 +11,7 @@ export class TaskserviceService {
   getTasks(): Observable<any> {
     const myHeaders = new Headers();
     const token = localStorage.getItem('token');
-    myHeaders.append("Authorization", `Token ce7ec33f2e134130748df55fc7dd7f27a6089b14`);
+    myHeaders.append("Authorization", `Token ` + token);
     console.log(myHeaders);
 
     const requestOptions: RequestInit = {
@@ -20,7 +20,7 @@ export class TaskserviceService {
       redirect: 'follow'
     };
 
-    const url = "http://127.0.0.1:8000/api/join/tasks";
+    const url = "https://scholzniels.pythonanywhere.com/api/join/tasks/";
 
     return new Observable((subscriber) => {
       fetch(url, requestOptions)
@@ -38,7 +38,7 @@ export class TaskserviceService {
   updateStatus(taskId: number, newStatus: string): Observable<any> {
     const myHeaders = new Headers();
     const token = localStorage.getItem('token');
-    myHeaders.append("Authorization", `Token ce7ec33f2e134130748df55fc7dd7f27a6089b14`);
+    myHeaders.append("Authorization", `Token ` + token);
     myHeaders.append("Content-Type", "application/json");
 
     const requestOptions: RequestInit = {
@@ -48,7 +48,7 @@ export class TaskserviceService {
       redirect: 'follow'
     };
 
-    const url = `http://127.0.0.1:8000/api/join/tasks/${taskId}/`;
+    const url = `https://scholzniels.pythonanywhere.com/api/join/tasks/${taskId}/`;
 
     return new Observable((subscriber) => {
       fetch(url, requestOptions)

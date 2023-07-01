@@ -20,8 +20,9 @@ export class AddcontactpopupComponent {
   }
 
   private getHeaders(): Headers {
+    const token = localStorage.getItem('token');
     const headers = new Headers();
-    headers.append("Authorization", "Token ce7ec33f2e134130748df55fc7dd7f27a6089b14");
+    headers.append("Authorization", "Token " + token);
     headers.append("Content-Type", "application/json");
     return headers;
   }
@@ -40,7 +41,7 @@ export class AddcontactpopupComponent {
 
   async createContact() {
     const requestOptions = this.getRequestOptions();
-    const url = "http://127.0.0.1:8000/api/join/contacts/";
+    const url = "https://scholzniels.pythonanywhere.com/api/join/contacts/";
 
       const response = await fetch(url, requestOptions);
       const data = await response.json();

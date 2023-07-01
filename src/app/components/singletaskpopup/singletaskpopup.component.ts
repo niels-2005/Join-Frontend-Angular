@@ -91,8 +91,9 @@ export class SingletaskpopupComponent implements OnInit {
   }
 
   async editTask(){
+    const token = localStorage.getItem('token');
     const myHeaders = new Headers();
-    myHeaders.append("Authorization", "Token ce7ec33f2e134130748df55fc7dd7f27a6089b14");
+    myHeaders.append("Authorization", "Token " + token);
     myHeaders.append("Content-Type", "application/json");
 
     const task = this.taskForm.value;
@@ -118,7 +119,7 @@ export class SingletaskpopupComponent implements OnInit {
       body: raw,
     };
 
-    const url = `http://127.0.0.1:8000/api/join/tasks/${this.selectedTask.id}/`;
+    const url = `https://scholzniels.pythonanywhere.com/api/join/tasks/${this.selectedTask.id}/`;
 
     try {
       const resp = await fetch(url, requestOptions);
@@ -152,8 +153,9 @@ export class SingletaskpopupComponent implements OnInit {
   }
 
   async deleteTask() {
+    const token = localStorage.getItem('token');
     const myHeaders = new Headers();
-    myHeaders.append("Authorization", "Token ce7ec33f2e134130748df55fc7dd7f27a6089b14");
+    myHeaders.append("Authorization", "Token " + token);
     myHeaders.append("Content-Type", "application/json");
 
     const requestOptions: RequestInit = {
@@ -161,7 +163,7 @@ export class SingletaskpopupComponent implements OnInit {
         headers: myHeaders
     };
 
-    const url = `http://127.0.0.1:8000/api/join/tasks/${this.selectedTask.id}/`;
+    const url = `https://scholzniels.pythonanywhere.com/api/join/tasks/${this.selectedTask.id}/`;
 
     try {
         const resp = await fetch(url, requestOptions);

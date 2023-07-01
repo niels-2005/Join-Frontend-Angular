@@ -17,7 +17,7 @@ export class KanbanprojecttoolheaderComponent implements OnInit {
       method: 'POST',
     };
 
-    const url = 'http://127.0.0.1:8000/api/logout/';
+    const url = 'https://scholzniels.pythonanywhere.com/api/logout/';
 
 
       const resp = await fetch(url, requestOptions);

@@ -20,7 +20,7 @@ export class RegisterComponent {
   signUp() {
     const requestOptions = this.createRequestOptions();
 
-    fetch("https://nielsscholz.pythonanywhere.com/api/registration/", requestOptions)
+    fetch("https://scholzniels.pythonanywhere.com/api/registration/", requestOptions)
       .then(this.handleResponse)
       .then(({ ok, body }) => {
         if (ok) {

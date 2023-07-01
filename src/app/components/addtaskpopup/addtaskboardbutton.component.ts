@@ -65,8 +65,9 @@ export class AddtaskboardbuttonComponent implements OnInit {
   }
 
   addTask() {
+    const token = localStorage.getItem('token');
     const myHeaders = new Headers();
-    myHeaders.append("Authorization", "Token ce7ec33f2e134130748df55fc7dd7f27a6089b14");
+    myHeaders.append("Authorization", "Token " + token);
     myHeaders.append("Content-Type", "application/json");
 
     const taskData = {
@@ -86,7 +87,7 @@ export class AddtaskboardbuttonComponent implements OnInit {
       body: JSON.stringify(taskData)
     };
 
-    fetch("http://127.0.0.1:8000/api/join/tasks/", requestOptions)
+    fetch("https://scholzniels.pythonanywhere.com/api/join/tasks/", requestOptions)
       .then(response => {
         if (response.ok) {
           console.log('Task creation successful');

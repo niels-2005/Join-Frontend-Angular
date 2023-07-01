@@ -20,8 +20,9 @@ export class EditcontactpopupComponent {
   }
 
   async deleteContact() {
+    const token = localStorage.getItem('token');
     const myHeaders = new Headers();
-    myHeaders.append("Authorization", "Token ce7ec33f2e134130748df55fc7dd7f27a6089b14");
+    myHeaders.append("Authorization", "Token " + token);
     myHeaders.append("Content-Type", "application/json");
 
     const requestOptions: RequestInit = {
@@ -29,7 +30,7 @@ export class EditcontactpopupComponent {
         headers: myHeaders
     };
 
-    const url = `http://127.0.0.1:8000/api/join/contacts/${this.selectedContact.id}/`;
+    const url = `https://scholzniels.pythonanywhere.com/api/join/contacts/${this.selectedContact.id}/`;
 
     try {
         const resp = await fetch(url, requestOptions);
@@ -50,8 +51,9 @@ export class EditcontactpopupComponent {
 }
 
   async saveEditedContact() {
+    const token = localStorage.getItem('token');
     const myHeaders = new Headers();
-    myHeaders.append("Authorization", "Token ce7ec33f2e134130748df55fc7dd7f27a6089b14");
+    myHeaders.append("Authorization", "Token " + token);
     myHeaders.append("Content-Type", "application/json");
 
     const raw = JSON.stringify({
@@ -66,7 +68,7 @@ export class EditcontactpopupComponent {
       body: raw,
     };
 
-    const url = `http://127.0.0.1:8000/api/join/contacts/${this.selectedContact.id}/`;
+    const url = `https://scholzniels.pythonanywhere.com/api/join/contacts/${this.selectedContact.id}/`;
 
     try {
       const resp = await fetch(url, requestOptions);

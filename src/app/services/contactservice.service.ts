@@ -25,8 +25,9 @@ export class ContactserviceService {
   flatContacts$ = this.flatContacts.asObservable();
 
   private getHeaders(): Headers {
+    const token = localStorage.getItem('token');
     const myHeaders = new Headers();
-    myHeaders.append("Authorization", "Token ce7ec33f2e134130748df55fc7dd7f27a6089b14");
+    myHeaders.append("Authorization", "Token " + token);
     return myHeaders;
   }
 
@@ -40,7 +41,7 @@ export class ContactserviceService {
   async getContacts(): Promise<void> {
     const requestOptions = this.getRequestOptions();
 
-    const response = await fetch("http://127.0.0.1:8000/api/join/contacts", requestOptions);
+    const response = await fetch("https://scholzniels.pythonanywhere.com/api/join/contacts/", requestOptions);
     const data = await response.json();
 
     const contacts: Contact[] = data.map((contact: any): Contact => {
