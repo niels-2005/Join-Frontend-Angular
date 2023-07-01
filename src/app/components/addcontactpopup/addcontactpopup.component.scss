@@ -69,6 +69,14 @@
   }
 }
 
+@media(max-width: 680px){
+    .form-input-label {
+      img {
+        top: 25px !important;
+      }
+    }
+}
+
 @media(max-width: 550px){
   h1 {
     font-size: 48px !important;
