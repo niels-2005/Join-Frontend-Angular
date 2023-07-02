@@ -16,21 +16,21 @@
         *ngIf="selectedTask.priority === 'U'"
       >
         <span>Urgent</span>
-        <img src="/assets/img/urgent-prio-white.png" alt="Urgent white Icon" />
+        <img src="./assets/img/urgent-prio-white.png" alt="Urgent white Icon" />
       </div>
       <div
         class="single-task-prio-container bg-yellow"
         *ngIf="selectedTask.priority === 'M'"
       >
         <span>Medium</span>
-        <img src="/assets/img/medium-prio-white.png" alt="Medium white Icon" />
+        <img src="./assets/img/medium-prio-white.png" alt="Medium white Icon" />
       </div>
       <div
         class="single-task-prio-container bg-green"
         *ngIf="selectedTask.priority === 'L'"
       >
         <span>Low</span>
-        <img src="/assets/img/low-prio-white.png" alt="Low white Icon" />
+        <img src="./assets/img/low-prio-white.png" alt="Low white Icon" />
       </div>
     </div>
     <div class="assigned-to-content-container">
@@ -47,7 +47,7 @@
       </div>
     </div>
     <img
-      src="/assets/img/cross-icon.png"
+      src="./assets/img/cross-icon.png"
       alt="Close Icon"
       class="cross-image-task"
       (click)="closePopup()"
@@ -65,7 +65,7 @@
 
   <div class="edit-task-container d-none" id="edit-task-container">
     <img
-      src="/assets/img/cross-icon.png"
+      src="./assets/img/cross-icon.png"
       alt="Close Icon"
       class="cross-image-task"
       (click)="closePopup()"
@@ -144,7 +144,7 @@
     >
       <div class="select-contacts-to-assign">
         <span>Select contacts to assign</span>
-        <img src="/assets/img/arrow-down.png" alt="" />
+        <img src="./assets/img/arrow-down.png" alt="" />
       </div>
       <div
         *ngIf="showContacts"
@@ -165,7 +165,7 @@
       </div>
     </div>
     <span class="ok-span" (click)="editTask()"
-      >Ok <img src="/assets/img/done.png" alt="Checked Icon"
+      >Ok <img src="./assets/img/done.png" alt="Checked Icon"
     /></span>
   </div>
 </div>

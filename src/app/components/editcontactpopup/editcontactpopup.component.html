@@ -1,18 +1,18 @@
 <div class="contact-popup-container">
   <img
-    src="/assets/img/cross-icon.png"
+    src="./assets/img/cross-icon.png"
     alt="X Icon"
     class="cross-image"
     (click)="closeContactField('edit-contact-field', 'contacts-container')"
   />
   <div class="contact-popup-left-content">
-    <img src="/assets/img/Join-icon.png" alt="Join Logo" />
+    <img src="./assets/img/Join-icon.png" alt="Join Logo" />
     <h1 class="mt-50">Edit contact</h1>
     <div class="horizontal-line"></div>
   </div>
   <div class="contact-popup-right-content">
     <div class="contact-user-container">
-      <img src="/assets/img/contact-user.png" alt="User Image" />
+      <img src="./assets/img/contact-user.png" alt="User Image" />
     </div>
     <form class="contact-form-container" *ngIf="selectedContact">
       <label class="form-input-label">
@@ -24,7 +24,7 @@
           [(ngModel)]="selectedContact!.name"
           required
         />
-        <img src="/assets/img/user.png" alt="User Symbol" />
+        <img src="./assets/img/user.png" alt="User Symbol" />
       </label>
       <span id="username-error-edit" class="error-message"></span>
       <label class="form-input-label">
@@ -36,7 +36,7 @@
           class="login-input"
           placeholder="Email"
         />
-        <img src="/assets/img/mail-icon.png" alt="Mailsymbol" />
+        <img src="./assets/img/mail-icon.png" alt="Mailsymbol" />
       </label>
       <span id="email-error-edit" class="error-message"></span>
       <label class="form-input-label">
@@ -48,7 +48,7 @@
           [(ngModel)]="selectedContact!.phone"
           required
         />
-        <img src="/assets/img/phone-icon.png" alt="User Symbol" />
+        <img src="./assets/img/phone-icon.png" alt="User Symbol" />
       </label>
       <span id="phone-error-edit" class="error-message"></span>
       <div class="add-task-button-container mt-50">

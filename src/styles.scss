@@ -308,12 +308,12 @@ a {
   font-size: 22px;
   border-radius: 10px;
   cursor: pointer;
-  background-image: url('/assets/img/cross-icon.png');
+  background-image: url('./assets/img/cross-icon.png');
   background-repeat: no-repeat;
   background-position: right 18px center;
   padding-right: 35px;
   &:hover {
-    background-image: url('/assets/img/blue-cross.png');
+    background-image: url('./assets/img/blue-cross.png');
   }
 }
 
@@ -325,7 +325,7 @@ a {
   height: 50px;
   width: 180px;
   padding-right: 35px;
-  background-image: url('/assets/img/done.png');
+  background-image: url('./assets/img/done.png');
   background-repeat: no-repeat;
   background-position: right 18px center;
   padding-right: 35px;
@@ -429,42 +429,42 @@ a {
 }
 
 .bg-urgent {
-  background-image: url('/assets/img/urgent.icon2.png');
+  background-image: url('./assets/img/urgent.icon2.png');
   background-repeat: no-repeat;
   background-position: right 15px center;
   background-color: white;
 }
 
 .bg-medium{
-  background-image: url('/assets/img/urgent-icon3.png');
+  background-image: url('./assets/img/urgent-icon3.png');
   background-repeat: no-repeat;
   background-position: right 10px center;
   background-color: white;
 }
 
 .bg-low {
-  background-image: url('/assets/img/urgent-icon4.png');
+  background-image: url('./assets/img/urgent-icon4.png');
   background-repeat: no-repeat;
   background-position: right 25px center;
   background-color: white;
 }
 
 .bg-urgent-while-clicked {
-  background-image: url('/assets/img/urgent-prio-white.png') !important;
+  background-image: url('./assets/img/urgent-prio-white.png') !important;
   background-color: #ff3d00 !important;
   color: white;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
 }
 
 .bg-medium-while-clicked {
-  background-image: url('/assets/img/medium-prio-white.png') !important;
+  background-image: url('./assets/img/medium-prio-white.png') !important;
   background-color: #ffa800 !important;
   color: white;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
 }
 
 .bg-low-while-clicked {
-  background-image: url('/assets/img/low-prio-white.png') !important;
+  background-image: url('./assets/img/low-prio-white.png') !important;
   background-color: rgb(122,226,41) !important;
   color: white;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
@@ -643,12 +643,12 @@ a {
   font-size: 22px;
   border-radius: 10px;
   cursor: pointer;
-  background-image: url('/assets/img/cross-icon.png');
+  background-image: url('./assets/img/cross-icon.png');
   background-repeat: no-repeat;
   background-position: right 18px center;
   padding-right: 35px;
   &:hover {
-    background-image: url('/assets/img/blue-cross.png');
+    background-image: url('./assets/img/blue-cross.png');
   }
 }
 
@@ -660,7 +660,7 @@ a {
   height: 50px;
   width: 180px;
   padding-right: 35px;
-  background-image: url('/assets/img/done.png');
+  background-image: url('./assets/img/done.png');
   background-repeat: no-repeat;
   background-position: right 18px center;
   padding-right: 35px;

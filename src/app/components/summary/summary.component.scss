@@ -94,20 +94,20 @@
 }
 
 .change-todo-image-while-hover {
-  background-image: url('/assets/img/todo-icon.png');
+  background-image: url('../../../assets/img/todo-icon.png');
   background-repeat: no-repeat;
   background-position: 50px 45px;
   &:hover{
-    background-image: url('/assets/img/todo-white-icon.png');
+    background-image: url('../../../assets/img/todo-white-icon.png');
   }
 }
 
 .change-done-image-while-hover {
-  background-image: url('/assets/img/done-icon.png');
+  background-image: url('../../../assets/img/done-icon.png');
   background-repeat: no-repeat;
   background-position: 50px 45px;
   &:hover{
-    background-image: url('/assets/img/done-white-icon.png');
+    background-image: url('../../../assets/img/done-white-icon.png');
   }
 }
 

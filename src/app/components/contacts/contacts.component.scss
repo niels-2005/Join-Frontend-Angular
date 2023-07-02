@@ -94,7 +94,7 @@
   font-weight: bold;
   text-align: left;
   padding-left: 20px;
-  background-image: url('/assets/img/add-new-contakt-icon.png');
+  background-image: url('../../../assets/img/add-new-contakt-icon.png');
   background-repeat: no-repeat;
   background-position: right 20px center;
 }
@@ -152,12 +152,12 @@
   gap: 5px;
   height: 30px;
   padding-left: 25px;
-  background-image: url('/assets/img/pencil-icon-edit.png');
+  background-image: url('../../../assets/img/pencil-icon-edit.png');
   background-repeat: no-repeat;
   background-position: left center;
   &:hover {
     color: #29ABE2;
-    background-image: url('/assets/img/blue-pencil.png');
+    background-image: url('../../../assets/img/blue-pencil.png');
   }
 }
 

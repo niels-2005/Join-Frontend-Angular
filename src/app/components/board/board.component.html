@@ -8,7 +8,7 @@
       <div class="board-headline-left-container">
         <h1>Board</h1>
         <img
-          src="/assets/img/white-add-icon.png"
+          src="./assets/img/white-add-icon.png"
           alt="Add Task Icon"
           routerLink="/add-task"
           class="add-task-link-img d-none"
@@ -22,13 +22,13 @@
             [(ngModel)]="filterValue"
           />
           <div class="vertikal-line input-vertikal-line-pos"></div>
-          <img src="/assets/img/search-icon.png" alt="Search Icon" />
+          <img src="./assets/img/search-icon.png" alt="Search Icon" />
         </div>
         <button
           class="add-task-button"
           (click)="openTaskField('add-task-field', 'board-container')"
         >
-          Add task <img src="/assets/img/white-add-icon.png" alt="Add Icon" />
+          Add task <img src="./assets/img/white-add-icon.png" alt="Add Icon" />
         </button>
       </div>
     </div>
@@ -61,23 +61,23 @@
                     ? task.assigned_to_names.split(",").length
                     : 0
                 }}</span>
-                <img src="/assets/img/contact-user.png" alt="User Image" />
+                <img src="./assets/img/contact-user.png" alt="User Image" />
               </div>
               <img
                 *ngIf="task.priority === 'U'"
-                src="/assets/img/urgent.icon2.png"
+                src="./assets/img/urgent.icon2.png"
                 alt="Prio Icon"
                 class="priority-image"
               />
               <img
                 *ngIf="task.priority === 'M'"
-                src="/assets/img/urgent-icon3.png"
+                src="./assets/img/urgent-icon3.png"
                 alt="Prio Icon"
                 class="priority-image"
               />
               <img
                 *ngIf="task.priority === 'L'"
-                src="/assets/img/urgent-icon4.png"
+                src="./assets/img/urgent-icon4.png"
                 alt="Prio Icon"
                 class="priority-image"
               />
@@ -114,23 +114,23 @@
                     ? task.assigned_to_names.split(",").length
                     : 0
                 }}</span>
-                <img src="/assets/img/contact-user.png" alt="User Image" />
+                <img src="./assets/img/contact-user.png" alt="User Image" />
               </div>
               <img
                 *ngIf="task.priority === 'U'"
-                src="/assets/img/urgent.icon2.png"
+                src="./assets/img/urgent.icon2.png"
                 alt="Prio Icon"
                 class="priority-image"
               />
               <img
                 *ngIf="task.priority === 'M'"
-                src="/assets/img/urgent-icon3.png"
+                src="./assets/img/urgent-icon3.png"
                 alt="Prio Icon"
                 class="priority-image"
               />
               <img
                 *ngIf="task.priority === 'L'"
-                src="/assets/img/urgent-icon4.png"
+                src="./assets/img/urgent-icon4.png"
                 alt="Prio Icon"
                 class="priority-image"
               />
@@ -171,19 +171,19 @@
               </div>
               <img
                 *ngIf="task.priority === 'U'"
-                src="/assets/img/urgent.icon2.png"
+                src="./assets/img/urgent.icon2.png"
                 alt="Prio Icon"
                 class="priority-image"
               />
               <img
                 *ngIf="task.priority === 'M'"
-                src="/assets/img/urgent-icon3.png"
+                src="./assets/img/urgent-icon3.png"
                 alt="Prio Icon"
                 class="priority-image"
               />
               <img
                 *ngIf="task.priority === 'L'"
-                src="/assets/img/urgent-icon4.png"
+                src="./assets/img/urgent-icon4.png"
                 alt="Prio Icon"
                 class="priority-image"
               />
@@ -220,23 +220,23 @@
                     ? task.assigned_to_names.split(",").length
                     : 0
                 }}</span>
-                <img src="/assets/img/contact-user.png" alt="User Image" />
+                <img src="./assets/img/contact-user.png" alt="User Image" />
               </div>
               <img
                 *ngIf="task.priority === 'U'"
-                src="/assets/img/urgent.icon2.png"
+                src="./assets/img/urgent.icon2.png"
                 alt="Prio Icon"
                 class="priority-image"
               />
               <img
                 *ngIf="task.priority === 'M'"
-                src="/assets/img/urgent-icon3.png"
+                src="./assets/img/urgent-icon3.png"
                 alt="Prio Icon"
                 class="priority-image"
               />
               <img
                 *ngIf="task.priority === 'L'"
-                src="/assets/img/urgent-icon4.png"
+                src="./assets/img/urgent-icon4.png"
                 alt="Prio Icon"
                 class="priority-image"
               />
