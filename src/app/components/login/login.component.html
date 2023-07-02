@@ -96,7 +96,16 @@
         <span id="password-error-login" class="error-message"></span>
         <div class="forgot-my-password-container">
           <div>
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              name="rememberMe"
+              [(ngModel)]="rememberMe"
+              (click)="
+                rememberMe
+                  ? saveUserToLocalStorage()
+                  : deleteUserFromLocalStorage()
+              "
+            />
             <span>Remember me</span>
           </div>
           <span

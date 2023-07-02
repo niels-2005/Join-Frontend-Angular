@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
   username: string = '';
   email: string = '';
   password: string = '';
+  rememberMe: boolean = false;
 
   async login() {
     const myHeaders = new Headers();
@@ -38,6 +39,7 @@ export class LoginComponent implements OnInit {
       if (resp.ok) {
         localStorage.setItem('token', json.key);
         localStorage.setItem('username', this.username);
+        this.saveUserToLocalStorage();
         this.router.navigate(['/summary']);
         console.log('User login successful');
       } else {
@@ -64,10 +66,43 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loadUserFromLocalStorage();
       setTimeout(() => {
         this.deleteAnimations();
       }, 2000);
   }
+
+  saveUserToLocalStorage() {
+    if (this.rememberMe) {
+      localStorage.setItem('loginUsername', this.username);
+      localStorage.setItem('email', this.email);
+      localStorage.setItem('password', this.password);
+      localStorage.setItem('rememberMe', 'true');
+    } else {
+      localStorage.setItem('rememberMe', 'false');
+    }
+  }
+
+  loadUserFromLocalStorage() {
+    const rememberMe = localStorage.getItem('rememberMe') === 'true';
+    if (rememberMe) {
+      this.username = localStorage.getItem('loginUsername')!;
+      this.email = localStorage.getItem('email')!;
+      this.password = localStorage.getItem('password')!;
+      this.rememberMe = true;
+    }
+  }
+
+
+  deleteUserFromLocalStorage() {
+    localStorage.removeItem('loginUsername');
+    localStorage.removeItem('email');
+    localStorage.removeItem('password');
+    localStorage.setItem('rememberMe', 'false');
+    this.rememberMe = false;
+  }
+
+
 
   deleteAnimations(){
     document.getElementById('login-container')!.classList.remove('fade-in-animation');
