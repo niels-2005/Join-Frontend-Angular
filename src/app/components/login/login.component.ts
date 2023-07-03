@@ -14,6 +14,8 @@ export class LoginComponent implements OnInit {
   password: string = '';
   rememberMe: boolean = false;
 
+  signUpSuccess: boolean = false;
+
   async login() {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -70,6 +72,13 @@ export class LoginComponent implements OnInit {
       setTimeout(() => {
         this.deleteAnimations();
       }, 2000);
+    this.checkIfUserSignUp();
+  }
+
+  checkIfUserSignUp(){
+    this.hideOrShowPasswordService.signUpSuccess$.subscribe(success => {
+      this.signUpSuccess = success;
+    });
   }
 
   saveUserToLocalStorage() {

@@ -136,7 +136,8 @@ export class AddtaskboardbuttonComponent implements OnInit {
     return selectedContacts;
   }
 
-  toggleContact(contact: any) {
+  toggleContact(contact: any, event: Event) {
+    event.stopPropagation();
     contact.checked = !contact.checked;
     this.updateAssignedTo();
   }

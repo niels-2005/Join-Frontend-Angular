@@ -92,13 +92,14 @@
               *ngFor="let contact of contacts$ | async"
               class="dropdown-contact"
             >
-              <label class="contact-item" (click)="toggleContact(contact)">
+              <label class="contact-item">
                 <span>{{ contact.name }}</span>
                 <input
                   type="checkbox"
                   class="input-checkbox"
                   [checked]="contact.checked"
-                  (change)="toggleContact(contact)"
+                  (click)="$event.stopPropagation()"
+                  (change)="toggleContact(contact, $event)"
                 />
               </label>
             </div>

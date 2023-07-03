@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -38,4 +39,11 @@ export class HideOrShowPasswortInInputServiceService {
       hidePasswordImage.classList.remove('d-none');
       passwordInput.type = 'password';
 }
+
+  private _signUpSuccess = new BehaviorSubject<boolean>(false);
+  signUpSuccess$ = this._signUpSuccess.asObservable();
+
+  setSignUpSuccess(value: boolean) {
+    this._signUpSuccess.next(value);
+  }
 }

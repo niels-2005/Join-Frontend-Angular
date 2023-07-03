@@ -26,12 +26,20 @@ export class RegisterComponent {
         if (ok) {
           this.storeToken(body.key);
           this.switchToLoginContainer();
+          this.hideOrShowPasswordService.setSignUpSuccess(true);
+          this.disableSignUpField();
           console.log('User Sign Up successful');
         } else {
           this.showSignUpErrorMessages(body);
         }
       })
       .catch(error => console.log('error', error));
+  }
+
+  disableSignUpField(){
+    setTimeout(() => {
+      this.hideOrShowPasswordService.setSignUpSuccess(false);
+    }, 1500);
   }
 
   createRequestOptions(): RequestInit {

@@ -88,19 +88,19 @@
               *ngFor="let contact of contacts$ | async"
               class="dropdown-contact"
             >
-              <label class="contact-item" (click)="toggleContact(contact)">
+              <label class="contact-item">
                 <span>{{ contact.name }}</span>
                 <input
                   type="checkbox"
                   class="input-checkbox"
                   [checked]="contact.checked"
-                  (change)="toggleContact(contact)"
+                  (change)="toggleContact(contact, $event)"
+                  (click)="$event.stopPropagation()"
                 />
               </label>
             </div>
           </div>
         </div>
-        <span id="assigned-to-error" class="error-message"></span>
       </div>
       <div class="vertikal-line"></div>
       <div class="add-task-content-right">
