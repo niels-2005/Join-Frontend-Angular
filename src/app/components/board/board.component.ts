@@ -20,6 +20,7 @@ export class BoardComponent implements OnInit {
 
   selectedTask: any;
 
+
   onTaskClick(task: any) {
     this.popupService.addOpacity();
     this.selectedTask = null;

@@ -256,6 +256,13 @@
 }
 
 
+@media(max-width: 1450px){
+  .add-task-container-position {
+    position: absolute;
+    left: -1200px !important;
+  }
+}
+
 @media(max-width: 1400px){
   h1 {
     margin-left: 100px !important;
@@ -263,6 +270,12 @@
   .add-task-content-container {
     justify-content: center;
     gap: 50px;
+  }
+}
+
+@media(max-width: 1320px){
+  .add-task-container-position {
+    left: -1000px !important;
   }
 }
 
@@ -275,6 +288,18 @@
 @media(max-width: 1175px){
   h1 {
     margin-left: 15px !important;
+  }
+}
+
+@media(max-width: 1180px){
+  .add-task-container-position {
+    left: -900px !important;
+  }
+}
+
+@media(max-width: 1085px){
+  .add-task-container-position {
+    left: -800px !important;
   }
 }
 
