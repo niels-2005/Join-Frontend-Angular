@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
 import { AddtaskfieldserviceService } from 'src/app/services/addtaskfieldservice.service';
 import { map, tap, first } from 'rxjs/operators';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
@@ -6,6 +6,7 @@ import { ContactserviceService, Contact } from 'src/app/services/contactservice.
 import { DatePipe } from '@angular/common';
 import { TaskserviceService } from 'src/app/services/taskservice.service';
 import { Router } from '@angular/router';
+import { ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-addtaskboardbutton',
@@ -15,7 +16,7 @@ import { Router } from '@angular/router';
 export class AddtaskboardbuttonComponent implements OnInit {
 
 
-  constructor(private popupSerivce: AddtaskfieldserviceService ,private fb: FormBuilder, private contactService: ContactserviceService, private datePipe: DatePipe, private taskService: TaskserviceService, private router: Router) {}
+  constructor(private eRef: ElementRef, private popupSerivce: AddtaskfieldserviceService ,private fb: FormBuilder, private contactService: ContactserviceService, private datePipe: DatePipe, private taskService: TaskserviceService, private router: Router) {}
 
   taskForm!: FormGroup;
   myControl = new FormControl();
@@ -138,6 +139,7 @@ export class AddtaskboardbuttonComponent implements OnInit {
   }
 
   toggleContact(contact: any, event: Event) {
+    event.preventDefault();
     event.stopPropagation();
     contact.checked = !contact.checked;
     this.updateAssignedTo();
@@ -159,7 +161,15 @@ export class AddtaskboardbuttonComponent implements OnInit {
     return new FormControl(contact.checked || false);
   }
 
+  @ViewChild('dropdown') dropdown!: ElementRef;
 
+@HostListener('document:click', ['$event'])
+onDocumentClick(event: MouseEvent): void {
+  const clickedInside = this.dropdown.nativeElement.contains(event.target);
+  if (!clickedInside) {
+    this.showContacts = false;
+  }
+}
 
 
 }

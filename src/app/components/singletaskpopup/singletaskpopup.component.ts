@@ -57,6 +57,7 @@ export class SingletaskpopupComponent implements OnInit {
   }
 
   toggleContact(contact: any, event: Event) {
+    event.preventDefault();
     event.stopPropagation();
     contact.checked = !contact.checked;
     this.updateAssignedTo();

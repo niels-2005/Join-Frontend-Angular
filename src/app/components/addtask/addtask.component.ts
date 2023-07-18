@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { ContactserviceService } from 'src/app/services/contactservice.service';
 import { map, tap, first } from 'rxjs/operators';
 import { DatePipe } from '@angular/common';
 import { TaskserviceService } from 'src/app/services/taskservice.service';
 import { Router } from '@angular/router';
+import { ElementRef } from '@angular/core';
+
 
 @Component({
   selector: 'app-addtask',
@@ -29,7 +31,7 @@ setColor(color: string) {
   this.taskForm.patchValue({color: color});
 }
 
-  constructor(private fb: FormBuilder, private contactService: ContactserviceService, private datePipe: DatePipe, private taskService: TaskserviceService, private router: Router) {}
+  constructor(private fb: FormBuilder, private contactService: ContactserviceService, private datePipe: DatePipe, private taskService: TaskserviceService, private router: Router, private eRef: ElementRef) {}
 
   async ngOnInit(): Promise<void> {
     this.initTaskForm();
@@ -138,6 +140,7 @@ setColor(color: string) {
   }
 
   toggleContact(contact: any, event: Event) {
+    event.preventDefault();
     event.stopPropagation();
     contact.checked = !contact.checked;
     this.updateAssignedTo();
@@ -158,4 +161,14 @@ setColor(color: string) {
   getContactFormControl(contact: any): FormControl {
     return new FormControl(contact.checked || false);
   }
+
+  @ViewChild('dropdown') dropdown!: ElementRef;
+
+@HostListener('document:click', ['$event'])
+onDocumentClick(event: MouseEvent): void {
+  const clickedInside = this.dropdown.nativeElement.contains(event.target);
+  if (!clickedInside) {
+    this.showContacts = false;
+  }
+}
 }

@@ -32,7 +32,8 @@ export class LoginComponent implements OnInit {
       body: raw,
     };
 
-    const url = 'https://scholzniels.pythonanywhere.com/api/login/';
+    // const url = 'https://scholzniels.pythonanywhere.com/api/login/';
+    const url = 'http://127.0.0.1:8000/api/login/';
 
     try {
       const resp = await fetch(url, requestOptions);
