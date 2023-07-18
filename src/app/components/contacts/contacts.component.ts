@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AddtaskfieldserviceService } from 'src/app/services/addtaskfieldservice.service';
 import { ContactserviceService } from 'src/app/services/contactservice.service';
+import { Contact } from 'src/app/services/contactservice.service';
 
 @Component({
   selector: 'app-contacts',
@@ -12,16 +13,20 @@ export class ContactsComponent {
   contacts!: { [key: string]: any };
   selectedContact: any;
 
-  constructor(private contactService: ContactserviceService, private popupService: AddtaskfieldserviceService) {
-    this.contactService.contacts$.subscribe(groupedContacts => {
-      this.contacts = groupedContacts;
-    });
-  }
+  constructor(private contactService: ContactserviceService, private popupService: AddtaskfieldserviceService) { }
 
   async ngOnInit(): Promise<void> {
-    await this.contactService.getContacts();
+    const username = localStorage.getItem('username');
+
+    this.contactService.flatContacts$.subscribe(allContacts => {
+      const userContacts = allContacts.filter((contact: Contact) => contact.created_from === username);
+      this.contacts = this.groupByInitial(userContacts);
+    });
+
     this.subscribeToSelectedContact();
+    this.contactService.getContacts();
   }
+
 
   subscribeToSelectedContact(): void {
     this.contactService.selectedContact$.subscribe(
@@ -50,9 +55,6 @@ export class ContactsComponent {
   openTaskField(id1: string, id2: string) {
     this.popupService.openTaskField(id1, id2);
   }
-
-
-
 
   onContactClick(contact: any) {
     this.selectedContact = contact;

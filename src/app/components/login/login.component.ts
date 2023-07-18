@@ -132,7 +132,7 @@ export class LoginComponent implements OnInit {
 
    guestLogin() {
     this.router.navigate(['/summary']);
-    localStorage.removeItem('username');
+    localStorage.setItem('username', 'Guest');
     const token = 'b9fe5e87c4b8499a8f103359c164f973bc132a0f'
     localStorage.setItem('token', token);
   }

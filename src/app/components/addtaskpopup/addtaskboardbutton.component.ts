@@ -73,6 +73,7 @@ export class AddtaskboardbuttonComponent implements OnInit {
     const taskData = {
       ...this.taskForm.value,
       color: this.selectedColor,
+      created_from: localStorage.getItem('username'),
       assigned_to_names: this.taskForm.get('assignedTo')?.value,
       deadline: this.datePipe.transform(this.taskForm.get('dueDate')?.value, 'yyyy-MM-dd'),
       priority: this.selectedPriority,

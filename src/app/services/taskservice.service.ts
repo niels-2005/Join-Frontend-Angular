@@ -21,12 +21,14 @@ export class TaskserviceService {
     };
 
     const url = "https://scholzniels.pythonanywhere.com/api/join/tasks/";
+    const username = localStorage.getItem('username');
 
     return new Observable((subscriber) => {
       fetch(url, requestOptions)
         .then(response => response.json())
         .then(result => {
-          subscriber.next(result);
+          const filteredTasks = result.filter((task: any) => task.created_from === username);
+          subscriber.next(filteredTasks);
           subscriber.complete();
         })
         .catch(error => {
@@ -34,6 +36,7 @@ export class TaskserviceService {
         });
     });
   }
+
 
   updateStatus(taskId: number, newStatus: string): Observable<any> {
     const myHeaders = new Headers();
