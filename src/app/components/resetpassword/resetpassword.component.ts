@@ -23,7 +23,6 @@ export class ResetpasswordComponent implements OnInit {
     this.uid = this.route.snapshot.paramMap.get('uid') ?? '';
     this.token = this.route.snapshot.paramMap.get('token') ?? '';
 
-    console.log(this.uid, this.token);
   }
 
   async resetPassword(){

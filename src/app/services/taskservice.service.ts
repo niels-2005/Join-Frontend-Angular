@@ -12,7 +12,6 @@ export class TaskserviceService {
     const myHeaders = new Headers();
     const token = localStorage.getItem('token');
     myHeaders.append("Authorization", `Token ` + token);
-    console.log(myHeaders);
 
     const requestOptions: RequestInit = {
       method: 'GET',

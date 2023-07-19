@@ -31,7 +31,6 @@ getTasks(){
       this.tasks = result;
       this.filterTasksByStatus();
       this.getNextDeadline();
-      console.log('Tasks:', this.tasks);
     },
     (error) => {
       console.error('Error:', error);

@@ -61,7 +61,6 @@ export class AddtaskboardbuttonComponent implements OnInit {
       document.getElementById(id2)!.classList.remove(removedClassOne);
       document.getElementById(id3)!.classList.remove(removedClassTwo);
       this.selectedPriority = prio;
-      console.log(this.selectedPriority);
     }, 100);
   }
 
@@ -81,8 +80,6 @@ export class AddtaskboardbuttonComponent implements OnInit {
       status: "todo"
     };
 
-    console.log(taskData);
-
     const requestOptions: RequestInit = {
       method: 'POST',
       headers: myHeaders,
@@ -92,7 +89,6 @@ export class AddtaskboardbuttonComponent implements OnInit {
     fetch("https://scholzniels.pythonanywhere.com/api/join/tasks/", requestOptions)
       .then(response => {
         if (response.ok) {
-          console.log('Task creation successful');
           this.showTaskAddedToBoard();
         } else {
           response.json().then(data => {
@@ -119,7 +115,6 @@ export class AddtaskboardbuttonComponent implements OnInit {
     this.showError('assigned-to-error', data.assigned_to_names);
     this.showError('date-error', data.deadline);
     this.showError('priority-error', data.priority);
-    console.log('Contact creation failed:', data);
   }
 
   showError(elementId: string, error: string[] | undefined) {

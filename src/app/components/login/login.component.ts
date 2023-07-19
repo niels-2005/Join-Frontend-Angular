@@ -44,10 +44,8 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('username', this.username);
         this.saveUserToLocalStorage();
         this.router.navigate(['/summary']);
-        console.log('User login successful');
       } else {
         this.showLoginErrorMessage(json);
-        console.log('User login failed:', json);
       }
     } catch (error) {
       console.log('Error during login:', error);
@@ -111,7 +109,6 @@ export class LoginComponent implements OnInit {
     localStorage.setItem('rememberMe', 'false');
     this.rememberMe = false;
   }
-
 
 
   deleteAnimations(){

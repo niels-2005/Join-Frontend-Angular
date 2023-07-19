@@ -40,12 +40,9 @@ const resp = await fetch("http://127.0.0.1:8000/api/reset/password/", requestOpt
 this.isButtonDisabled = true;
 
 if (resp.ok) {
-  const result = await resp.json();
-  console.log(result);
   this.emailSended = true;
 } else {
   const errorData = await resp.json();
-  console.log('error', errorData);
   this.fmpErrorMessage.nativeElement.textContent = errorData.detail;
   this.isButtonDisabled = false;
 }

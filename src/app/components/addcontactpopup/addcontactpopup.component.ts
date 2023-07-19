@@ -48,7 +48,6 @@ export class AddcontactpopupComponent {
       const data = await response.json();
 
       if (response.ok) {
-        console.log('Contact creation successful');
         this.closeContactField('add-task-field', 'contacts-container');
         this.contactService.getContacts();
       } else {

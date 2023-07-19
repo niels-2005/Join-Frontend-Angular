@@ -57,7 +57,6 @@ export class BoardComponent implements OnInit {
               break;
           }
         }
-        console.log('Tasks:', result);
       },
       (error) => {
         console.error('Error:', error);

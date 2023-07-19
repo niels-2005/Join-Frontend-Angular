@@ -16,15 +16,18 @@ export class ContactsComponent {
   constructor(private contactService: ContactserviceService, private popupService: AddtaskfieldserviceService) { }
 
   async ngOnInit(): Promise<void> {
+    this.showRightContacts();
+    this.subscribeToSelectedContact();
+    this.contactService.getContacts();
+  }
+
+  showRightContacts(){
     const username = localStorage.getItem('username');
 
     this.contactService.flatContacts$.subscribe(allContacts => {
       const userContacts = allContacts.filter((contact: Contact) => contact.created_from === username);
       this.contacts = this.groupByInitial(userContacts);
     });
-
-    this.subscribeToSelectedContact();
-    this.contactService.getContacts();
   }
 
 
@@ -64,5 +67,4 @@ export class ContactsComponent {
       document.getElementById('all-contact-details')?.classList.add('d-none');
     }
   }
-
 }

@@ -36,14 +36,12 @@ export class EditcontactpopupComponent {
         const resp = await fetch(url, requestOptions);
 
         if (resp.ok) {
-            console.log('Contact deletion successful');
             this.closeContactField('edit-contact-field', 'contacts-container');
             this.contactService.getContacts();
             this.selectedContact = null;
             this.contactService.setSelectedContact(null);
         } else {
             const json = await resp.json();
-            console.log('Contact deletion failed:', json);
         }
     } catch (error) {
         console.log('Error during contact deletion:', error);
@@ -75,10 +73,8 @@ export class EditcontactpopupComponent {
       const json = await resp.json();
 
       if (resp.ok) {
-        console.log('Contact update successful');
         this.closeContactField('edit-contact-field', 'contacts-container');
       } else {
-        console.log('Contact update failed:', json);
         this.showUpdateErrorMessage(json);
       }
     } catch (error) {
@@ -98,5 +94,4 @@ export class EditcontactpopupComponent {
       element.innerHTML = error[0];
     }
   }
-
 }

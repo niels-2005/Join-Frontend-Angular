@@ -71,7 +71,6 @@ setColor(color: string) {
       document.getElementById(id2)!.classList.remove(removedClassOne);
       document.getElementById(id3)!.classList.remove(removedClassTwo);
       this.selectedPriority = prio;
-      console.log(this.selectedPriority);
     }, 100);
   }
 
