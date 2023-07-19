@@ -20,6 +20,7 @@ export class SummaryComponent implements OnInit {
 constructor(private taskService: TaskserviceService) {}
 
 ngOnInit(): void {
+  this.taskService.checkToken();
   this.getTasks();
   this.setGreetingTime();
   this.greetUser();

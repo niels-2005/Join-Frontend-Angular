@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -6,7 +7,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 })
 export class TaskserviceService {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   getTasks(): Observable<any> {
     const myHeaders = new Headers();
@@ -67,6 +68,13 @@ export class TaskserviceService {
 
   filterTasksByStatus(tasks: any[], status: string): any[] {
     return tasks.filter((task) => task.status === status);
+  }
+
+  checkToken(){
+    const token = localStorage.getItem('token');
+    if (!token) {
+      this.router.navigate(['/login']);
+    }
   }
 
 }

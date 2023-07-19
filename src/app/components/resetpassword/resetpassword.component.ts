@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { TaskserviceService } from 'src/app/services/taskservice.service';
 
 @Component({
   selector: 'app-resetpassword',
@@ -17,12 +18,12 @@ export class ResetpasswordComponent implements OnInit {
 
   @ViewChild('fmpErrorMessage', { static: false }) fmpErrorMessage!: ElementRef;
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router, private tokenService: TaskserviceService) { }
 
   ngOnInit(): void {
     this.uid = this.route.snapshot.paramMap.get('uid') ?? '';
     this.token = this.route.snapshot.paramMap.get('token') ?? '';
-
+    this.tokenService.checkToken();
   }
 
   async resetPassword(){
@@ -42,7 +43,7 @@ export class ResetpasswordComponent implements OnInit {
       body: raw,
 };
 
-const resp = await fetch("http://127.0.0.1:8000/api/reset/password/confirm", requestOptions);
+const resp = await fetch("https://scholzniels.pythonanywhere.com/api/reset/password/confirm", requestOptions);
 
     if (resp.ok) {
        this.passwordResetted = true;

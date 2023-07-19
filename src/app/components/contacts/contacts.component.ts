@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AddtaskfieldserviceService } from 'src/app/services/addtaskfieldservice.service';
 import { ContactserviceService } from 'src/app/services/contactservice.service';
 import { Contact } from 'src/app/services/contactservice.service';
+import { TaskserviceService } from 'src/app/services/taskservice.service';
 
 @Component({
   selector: 'app-contacts',
@@ -13,12 +14,13 @@ export class ContactsComponent {
   contacts!: { [key: string]: any };
   selectedContact: any;
 
-  constructor(private contactService: ContactserviceService, private popupService: AddtaskfieldserviceService) { }
+  constructor(private contactService: ContactserviceService, private popupService: AddtaskfieldserviceService, private tokenService: TaskserviceService) { }
 
   async ngOnInit(): Promise<void> {
     this.showRightContacts();
     this.subscribeToSelectedContact();
     this.contactService.getContacts();
+    this.tokenService.checkToken();
   }
 
   showRightContacts(){

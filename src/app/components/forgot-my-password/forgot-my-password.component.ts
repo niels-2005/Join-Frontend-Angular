@@ -35,7 +35,7 @@ export class ForgotMyPasswordComponent {
       body: raw,
 };
 
-const resp = await fetch("http://127.0.0.1:8000/api/reset/password/", requestOptions);
+const resp = await fetch("https://scholzniels.pythonanywhere.com/api/reset/password/", requestOptions);
 
 this.isButtonDisabled = true;
 

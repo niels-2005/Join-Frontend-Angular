@@ -34,6 +34,7 @@ setColor(color: string) {
   constructor(private fb: FormBuilder, private contactService: ContactserviceService, private datePipe: DatePipe, private taskService: TaskserviceService, private router: Router, private eRef: ElementRef) {}
 
   async ngOnInit(): Promise<void> {
+    this.taskService.checkToken();
     this.initTaskForm();
     await this.contactService.getContacts();
   }

@@ -36,6 +36,7 @@ export class BoardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTasks();
+    this.taskService.checkToken();
   }
 
   getTasks() {
