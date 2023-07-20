@@ -171,4 +171,22 @@ onDocumentClick(event: MouseEvent): void {
     this.showContacts = false;
   }
 }
+
+getInitials(name: string): string {
+  return name.split(' ').map((n)=>n[0]).join('');
+}
+
+getSelectedContactInitials() {
+  let selectedContactsInitials: string[] = [];
+  this.contacts$.pipe(
+    map(contacts => contacts.filter(contact => contact.checked)),
+    map(contacts => contacts.map(contact => this.getInitials(contact.name)))
+  ).subscribe(initials => selectedContactsInitials = initials);
+  return selectedContactsInitials.join(", ");
+}
+
+isSelected(contact: any): boolean {
+  return contact.checked;
+}
+
 }

@@ -82,7 +82,18 @@
             ></span>
           </div>
         </div>
-        <span class="span-titles padding-0-mobile">Assigned to</span>
+        <div class="assigned-to-container-initials">
+          <span class="span-titles padding-0-mobile">Assigned to</span>
+          <div class="render-select-contacts-container">
+            <ng-container *ngFor="let contact of contacts$ | async">
+              <span
+                *ngIf="isSelected(contact)"
+                [style.background]="contact.color"
+                >{{ getInitials(contact.name) }}</span
+              >
+            </ng-container>
+          </div>
+        </div>
         <div
           #dropdown
           tabindex="0"

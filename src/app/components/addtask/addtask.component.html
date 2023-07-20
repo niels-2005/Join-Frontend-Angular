@@ -122,7 +122,15 @@
             </div>
           </div>
         </div>
-        <span id="assigned-to-error" class="error-message"></span>
+        <div class="render-select-contacts-container">
+          <ng-container *ngFor="let contact of contacts$ | async">
+            <span
+              *ngIf="isSelected(contact)"
+              [style.background]="contact.color"
+              >{{ getInitials(contact.name) }}</span
+            >
+          </ng-container>
+        </div>
       </div>
       <div class="vertikal-line"></div>
       <div class="add-task-content-right">
