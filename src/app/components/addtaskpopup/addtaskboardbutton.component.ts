@@ -29,8 +29,8 @@ export class AddtaskboardbuttonComponent implements OnInit {
 
   contacts$ = this.contactService.flatContacts$;
 
-  closeTaskField(id1: string, id2: string){
-    this.popupSerivce.closeTaskField(id1, id2);
+  closeTaskField(id1: string, id2: string, id3: string){
+    this.popupSerivce.closeTaskField(id1, id2, id3, '');
   }
 
   async ngOnInit(): Promise<void> {
@@ -102,7 +102,7 @@ export class AddtaskboardbuttonComponent implements OnInit {
   }
 
   showTaskAddedToBoard(){
-    this.closeTaskField('add-task-field', 'board-container');
+    this.closeTaskField('add-task-field', 'board-container', '');
     setTimeout(() => {
       window.location.reload();
     }, 200);

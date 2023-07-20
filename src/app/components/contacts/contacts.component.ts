@@ -57,8 +57,8 @@ export class ContactsComponent {
     return name.split(' ').map((n,i,a)=> i === 0 || i+1 === a.length ? n[0] : null).join('').toUpperCase();
   }
 
-  openTaskField(id1: string, id2: string) {
-    this.popupService.openTaskField(id1, id2);
+  openTaskField(id1: string, id2: string, id3: string) {
+    this.popupService.openTaskField(id1, id2, id3);
   }
 
   onContactClick(contact: any) {
@@ -68,5 +68,9 @@ export class ContactsComponent {
       document.getElementById('single-contact-details')?.classList.remove('d-none');
       document.getElementById('all-contact-details')?.classList.add('d-none');
     }
+  }
+
+  closeContactField(id1: string, id2: string, id3: string, id4: string){
+    this.popupService.closeTaskField(id1, id2, id3, id4);
   }
 }
